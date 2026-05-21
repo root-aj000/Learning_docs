@@ -1,0 +1,2812 @@
+SEAT No. :
+
+23
+8
+
+Total No. of Questions : 8]
+
+[Total No. of Pages : 2
+
+ic-
+
+P556
+
+sta
+t
+
+[6004]-491
+
+C
+8.2
+E
+16
+.23 GP
+82
+0
+6/0 13
+6/2
+0
+02 91
+31
+4:4
+2:1
+3
+
+B.E. (Computer)
+SOFTWARE TESTING AND QUALITY ASSURANCE
+(2019 Pattern) (Semester - VII) (Elective - IV) (410245D)
+
+ic-
+
+3s
+tat
+
+91
+
+31
+
+30
+
+6/2
+
+02
+
+01
+
+Illustrate Non - functional testing? Explain performance testing with
+example?
+[6]
+
+GP
+
+c)
+
+4:4
+
+What do you mean by unit and integration testing what are the approaches
+used in integration testing?
+[6]
+
+49
+
+b)
+
+[6]
+
+2:1
+
+Differentiate between black box and white box testing.
+
+.24
+
+Q1) a)
+
+23
+8
+
+Time : 2½ Hours]
+[Max. Marks : 70
+Instructions to the candidates:
+1) Attempt Q.No.1 or Q.No.2, Q.No.3 or Q.No.4, Q.No.5 or Q.No.6, Q.No.7 or Q.No.8.
+2) Figures to the right indicate full marks.
+3) Assume suitable data, if necessary.
+4) Neat diagrams must be drawn wherever necessary.
+
+[6]
+
+23
+
+8
+
+82
+
+Write a brief outline Experienced based techniques.
+
+CE
+
+Q2) a)
+
+6/0
+
+OR
+
+Can you explain statment coveragetesting & branch coverage testing?[6]
+
+c)
+
+How would you explain system testing & acceptance testing.
+
+ic-
+
+3s
+
+2:1
+
+91
+
+tat
+
+16
+
+8.2
+
+.24
+
+[6]
+
+30
+
+4:4
+
+What is impact of defect in different phase of software development?[6]
+
+49
+
+Q3) a)
+
+.23
+
+b)
+
+c)
+
+Explain why ISO - 9001 standard and it’s importants in software testing.[5]
+
+02
+
+6/2
+
+82
+
+.23
+
+.24
+49
+
+c)
+
+8.2
+
+16
+
+b)
+
+With respect to quality management system explain important aspects of
+quality management.
+[6]
+What do you understand regarding quality control & Explain two methods
+of quality control.
+[6]
+Why do you need to measure customer satisfaction?
+[5]
+
+CE
+
+Q4) a)
+
+[6]
+
+6/0
+
+GP
+
+OR
+
+31
+
+Can you explain quality plan in details?
+
+01
+
+b)
+
+P.T.O.
+
+[6]
+
+b)
+
+Illustrate Selenium’s IQE explain in details.
+
+[6]
+
+c)
+
+How would you explain selenium’s web driver explain.
+OR
+
+[6]
+
+Identify different benefits of Automation testing.
+
+[6]
+
+Explain different automated testing process.
+How would you explain R.P.A.
+
+[6]
+[6]
+
+Explain the six sigma characteristics in details.
+
+[6]
+
+b)
+
+Compare the Ishikawa’s flowchart and Histogram tools.
+
+[6]
+
+c)
+
+What parameter required for achieving good software quality.
+OR
+
+23
+8
+
+[5]
+
+Q7) a)
+
+ic-
+
+sta
+t
+
+Can you explain how to maintain SQA.
+
+[6]
+
+4:4
+
+31
+
+91
+
+30
+
+[6]
+[5]
+
+2:1
+
+Illustrate different task goal and metric in SQA.
+What do you think about deffect removal effectiveness explain it.
+
+49
+
+b)
+c)
+
+.24
+
+Q8) a)
+
+ic-
+
+b)
+c)
+
+3s
+tat
+
+Q6) a)
+
+23
+8
+
+What is automation testing in software testing? Explain in brief?
+
+C
+8.2
+E
+16
+.23 GP
+82
+0
+6/0 13
+6/2
+0
+02 91
+31
+4:4
+2:1
+3
+
+Q5) a)
+
+02
+
+6/2
+
+6/0
+
+23
+
+8
+
+82
+2
+
+49
+
+[6004]-491
+
+.24
+
+8.2
+
+16
+
+2:1
+4:4
+
+31
+
+02
+
+6/2
+
+6/0
+
+82
+
+.23
+
+CE
+
+GP
+
+01
+
+30
+
+49
+
+91
+
+.24
+
+3s
+
+8.2
+
+tat
+
+16
+
+ic-
+
+.23
+
+CE
+
+GP
+
+01
+
+
+
+SEAT No. :
+
+23
+8
+
+Total No. of Questions : 8]
+
+[Total No. of Pages : 2
+
+sta
+t
+
+ic-
+
+PB-2254
+
+C
+8.2
+E
+16
+.23 GP
+82
+0
+2/0 13
+5/2
+0
+02 91
+41
+4:0
+4:5
+6
+
+[6263]-92
+B.E. (Computer Engineering)
+SOFTWARE TESTING AND QUALITY ASSURANCE
+(2019 Pattern) (Semester - VII) (Elective - IV) (410245D)
+Time : 2½ Hours]
+
+[Max. Marks : 70
+
+Neat diagrams must be drawn wherever necessary.
+
+3)
+
+Figures to the right indicate full marks.
+
+4)
+
+Assume suitable data, if necessary.
+
+4:0
+
+30
+
+41
+
+5/2
+
+02
+
+01
+
+2/0
+
+8
+23
+ic-
+
+.23
+
+tat
+
+16
+
+6s
+
+02
+
+4:5
+
+4:0
+
+30
+
+5/2
+
+01
+
+41
+
+91
+
+.24
+
+49
+
+GP
+
+[4]
+
+16
+
+Write a note on Customer Satisfaction.
+OR
+
+2/0
+
+82
+
+.23
+
+CE
+
+ii) Present / Future requirements
+With neat diagram discuss waterfall model of software development.
+Also explain its limitations.
+[8]
+
+8.2
+
+c)
+
+Explain the following requirements of a product :
+i)
+Stated / Implied requirements
+
+.24
+
+b)
+
+What is Cookies testing? Explain Cookies testing with an example. [6]
+Discuss Loop coverage testing and types of it in detail.
+[6]
+
+49
+
+Q3) a)
+
+Walkthroughs
+Inspection
+
+[6]
+
+82
+
+GP
+
+OR
+Explain the following test case design techniques :
+i)
+Informal Reviews
+ii)
+iii)
+
+b)
+c)
+
+[6]
+
+Discuss Boundary Value Analysis and Equivalence Class Partition. [6]
+Differentiate between Functional testing and Non-functional testing. [6]
+
+CE
+
+Q2) a)
+
+Explain White box testing and Grey box testing in detail.
+
+8.2
+
+b)
+c)
+
+4:5
+
+91
+
+49
+
+Q1) a)
+
+ic-
+
+2)
+
+6s
+tat
+
+Solve Q.1 or Q.2, Q.3 or Q.4, Q.5 or Q.6, Q.7 or Q.8.
+
+.24
+
+1)
+
+23
+8
+
+Instructions to the candidates :
+
+[5]
+P.T.O.
+
+b)
+
+Give types of products based on the basis of criticality to the user.
+Explain each type with proper example.
+[8]
+Discuss problematic areas in software development life cycle.
+[6]
+
+c)
+
+List and explain limitations of Capability Maturity Models [CMM]. [3]
+
+C
+8.2
+E
+16
+.23 GP
+82
+0
+2/0 13
+5/2
+0
+02 91
+41
+4:0
+4:5
+6
+
+sta
+t
+
+ic-
+
+23
+8
+
+Q4) a)
+
+Differentiate between Manual Testing and Automation Testing.
+List and explain benefits of Automation testing.
+What is Performance testing? Explain the uses of it as well.
+
+[6]
+[6]
+[6]
+
+Q6) a)
+
+OR
+What is Automation testing? Explain it with an example.
+
+[6]
+
+b)
+c)
+
+With neat diagram explain Automated testing process.
+Describe Apache Jmeter based on :
+
+[6]
+[6]
+
+ic-
+
+6s
+tat
+4:5
+
+41
+
+4:0
+
+91
+02
+
+01
+
+23
+
+ic-
+
+.23
+
+tat
+
+Explain Ishikawa’s basic tools for quality control.
+
+2
+
+49
+
+[6263]-92
+
+82
+
+4:0
+
+4:5
+
+6s
+
+2/0
+
+5/2
+
+02
+
+41
+
+91
+
+.24
+
+8.2
+
+16
+
+.23
+
+CE
+
+GP
+
+01
+
+30
+
+49
+
+
+
+8
+
+82
+
+2/0
+
+5/2
+
+[6]
+[5]
+
+GP
+
+Explain ISO 9000 Standard in detail.
+Write a note on Software Quality Assurance [SQA] plan.
+
+.24
+
+c)
+
+[6]
+[3]
+
+16
+
+Q8) a)
+b)
+
+[8]
+
+Write a note on Six Sigma strategy of software quality assurance.
+Explain in brief : Histogram, Flowchart and Control chart.
+OR
+
+CE
+
+b)
+c)
+
+Explain the activities to achieve high software quality in detail.
+
+8.2
+
+Q7) a)
+
+Aim / Purpose
+Working
+Advantages
+
+30
+
+49
+
+.24
+
+i)
+ii)
+iii)
+
+23
+8
+
+Q5) a)
+b)
+c)
+
+[6]
+
+SEAT No. :
+
+23
+7
+
+Total No. of Questions : 8]
+
+PD4587
+
+[Total No. of Pages : 2
+
+sta
+t
+
+ic-
+
+[6404]-92
+
+C
+8.2
+E
+16
+.23 GP
+72
+0
+2/0 13
+5/2
+0
+02 91
+51
+3:4
+2:2
+3
+
+B.E. (Computer Engineering)
+SOFTWARE TESTING & QUALITY ASSURANCE
+(2019 Pattern) (Semester - VII) (410245D) (Elective - IV)
+Time : 2½ Hours]
+
+[Max. Marks : 70
+
+Instructions to the candidates:
+
+Solve Q1 or Q2, Q3 or Q4, Q5 or Q6, and Q7 or Q8.
+
+2)
+
+Figures to the right indicate full marks.
+
+3)
+
+Assume suitable data, if necessary.
+
+4)
+
+Neat diagrams must be drawn wherever necessary.
+
+ic-
+
+3s
+tat
+
+2:2
+
+91
+
+.24
+
+51
+
+30
+
+[6]
+
+3:4
+
+State in your own words White Box Testing.
+
+49
+
+How would you explain performance & security testing?
+
+c)
+
+Explain Risk Based Testing in detail.
+
+02
+
+5/2
+
+2/0
+
+[6]
+
+23
+
+7
+
+72
+
+OR
+
+ic[6]
+
+tat
+
+16
+
+State in your own words Black Box Testing.
+
+8.2
+
+Q2) a)
+
+[6]
+
+.23
+
+CE
+
+GP
+
+01
+
+b)
+
+3s
+
+Q1) a)
+
+23
+7
+
+1)
+
+c)
+
+What do you think about Exploratory testing.
+
+Q3) a)
+
+Can you clarify quality management system.
+
+b)
+
+Illustrate selenium’s IDE and explain in detail.
+
+[6]
+
+c)
+
+Can you clarify different levels of CMM.
+
+[5]
+
+3:4
+
+51
+
+91
+
+[6]
+
+02
+
+5/2
+
+2/0
+
+72
+
+[6]
+
+[6]
+
+49
+
+.24
+
+8.2
+
+16
+
+.23
+
+CE
+
+GP
+
+01
+
+30
+
+49
+
+OR
+
+2:2
+
+Can you explain compatibility testing & security testing?
+
+.24
+
+b)
+
+P.T.O.
+
+Explain why ISO-9001 standard and it’s importance in software testing.[6]
+
+23
+7
+
+Q4) a)
+
+Can you clarify Quality Assurance.
+
+c)
+
+Why software has defects? Explain in detail.
+
+[5]
+
+What is performance testing. What is use of it?
+
+[6]
+
+b)
+
+Illustrate selenium tool suite in detail.
+
+[6]
+
+c)
+
+How would you explain Selenium Web Driver? Explain it.
+
+[6]
+
+sta
+t
+
+ic-
+
+23
+7
+
+C
+8.2
+E
+16
+.23 GP
+72
+0
+2/0 13
+5/2
+0
+02 91
+51
+3:4
+2:2
+3
+
+Q5) a)
+
+[6]
+
+ic-
+
+b)
+
+[6]
+
+How to choose automation testing tools. Explain it.
+
+[6]
+
+3:4
+
+51
+
+91
+
+5/2
+
+ic-
+
+2/0
+
+[6]
+
+Can you explain how to maintain SQA?
+
+c)
+
+Explain Detect Removal Effectiveness in detail.
+
+23
+
+tat
+
+c)
+
+Compare Run Chart’s and Control Chart in details.
+
+72
+
+.23
+
+16
+8.2
+
+.24
+
+2
+
+49
+
+[6404]-92
+
+2/0
+
+Explain in detail Total Quality Management.
+
+CE
+
+b)
+
+
+
+[5]
+
+3:4
+
+51
+
+91
+5/2
+
+GP
+
+01
+
+Compare Ishikawa’s flow chart and Histogram tool.
+
+02
+
+30
+
+OR
+
+2:2
+
+3s
+
+8.2
+
+.24
+
+49
+Q8) a)
+
+[6]
+
+16
+
+b)
+
+7
+
+72
+
+Explain in detail six sigma characteristics in details.
+
+.23
+
+CE
+
+Q7) a)
+
+[6]
+
+02
+
+01
+
+Can you explain Selenium Grid in detail.
+
+GP
+
+c)
+
+30
+
+49
+
+b)
+
+2:2
+
+Explain Robotic process Automation in detail.
+
+.24
+
+Q6) a)
+
+3s
+tat
+
+OR
+
+[6]
+[6]
+[5]
+
+SEAT No. :
+
+23
+8
+
+Total No. of Questions : 8]
+
+[Total No. of Pages : 2
+
+ic-
+
+PA-921
+
+C
+8.2
+E
+16
+.23 GP
+81
+0
+0/0 13
+1/2
+0
+02 91
+31
+3:4
+3:2
+5
+
+sta
+t
+
+[5927] - 353
+B.E. (Computer) (Semester - VII)
+
+SOFTWARE TESTING & QUALITY ASSURANCE
+
+(2019 Pattern) (Elective - IV) (410245 D)
+
+23
+8
+
+5s
+tat
+
+3:4
+
+91
+
+49
+
+[6]
+
+3:2
+
+What do you think about static techniques?
+
+.24
+
+Q1) a)
+
+[Max. Marks : 70
+
+ic-
+
+Time : 2½ Hours]
+Instructions to the candidates :
+1) Answer Q.1 or Q.2, Q.3 or Q.4, Q.5 or Q.6, Q.7 or Q.8.
+2) Neat diagrams must be drawn wherever necessary.
+3) Figures to the right indicate full marks.
+
+c)
+
+How would you explain System Testing and Acceptance Testing?
+
+[6]
+
+1/2
+
+02
+
+01
+
+GP
+
+[6]
+
+31
+
+State in your own words Error guessing and exploratory testing.
+
+30
+
+b)
+
+0/0
+
+8
+
+81
+
+23
+
+Can you explain path coverage testing & conditional coverage testing.
+[6]
+Identify the importance of Regression Testing & explain it.
+
+c)
+
+Explain in detail performance testing with example.
+
+Why software has Defects? Explain in detail.
+
+0/0
+
+c)
+
+5s
+
+[6]
+
+02
+
+31
+
+3:4
+
+3:2
+
+[6]
+
+[6]
+[6]
+[5]
+
+16
+
+.23
+
+81
+
+Can you Clarify Quality Management system.
+
+CE
+
+b)
+
+1/2
+
+Differentiate between Quality Assurance and Quality Control.
+
+GP
+
+Q3) a)
+
+01
+
+30
+
+49
+
+91
+
+.24
+
+8.2
+
+b)
+
+tat
+
+16
+
+ic-
+
+.23
+
+Q2) a)
+
+CE
+
+OR
+
+49
+
+.24
+
+8.2
+
+OR
+
+P.T.O.
+
+Explain why ISO-9001 standard and it’s importants in software testing?
+[6]
+Illustrate selenium’s IDE and explain in detail.
+
+[6]
+
+c)
+
+Can you clarify different levels of CMM.
+
+[5]
+
+How would you explain selenium IDE explain in detail?
+
+[6]
+
+b)
+
+Explain Robotic Process Automation in detail.
+
+[6]
+
+c)
+
+Construct different automated testing process.
+
+5s
+tat
+
+OR
+
+c)
+
+How would you explain selenium Web Driver? Explain it.
+
+Q7) a)
+
+Compare the Ishikawa’s Flow chart and Histogram tool.
+
+[6]
+
+ic-
+
+3:4
+
+91
+
+Identify different benefits of Automation testing.
+
+31
+
+[6]
+
+02
+
+1/2
+
+0/0
+
+Explain in detail six sigma characteristics in details.
+
+c)
+
+Can you explain How to maintain SQA?
+
+8
+
+23
+
+[6]
+
+Compare Run charts and Control chart in detail.
+
+81
+
+.23
+
+CE
+
+16
+8.2
+
+.24
+
+2
+
+49
+
+[5927]-353
+
+3:2
+
+[5]
+
+3:4
+
+31
+
+91
+
+c)
+
+0/0
+
+Explain in detail Total Quality Management.
+
+GP
+
+b)
+
+
+
+02
+
+01
+
+Explain the six sigma characteristics in details.
+
+30
+
+OR
+
+1/2
+
+49
+
+.24
+
+5s
+
+8.2
+
+tat
+
+16
+
+b)
+
+Q8) a)
+
+[6]
+
+81
+
+CE
+
+GP
+
+01
+
+30
+
+b)
+
+.23
+
+49
+
+[6]
+
+3:2
+
+Illustrate selenium tool suite in detail.
+
+.24
+
+Q6) a)
+
+[6]
+
+ic-
+
+Q5) a)
+
+23
+8
+
+b)
+
+C
+8.2
+E
+16
+.23 GP
+81
+0
+0/0 13
+1/2
+0
+02 91
+31
+3:4
+3:2
+5
+
+sta
+t
+
+ic-
+
+23
+8
+
+Q4) a)
+
+[6]
+[6]
+[5]
+
+SEAT No. :
+
+23
+8
+
+Total No. of Questions : 8]
+
+[Total No. of Pages : 2
+
+ic-
+
+P-6562
+
+C
+8.2
+E
+16
+.23 GP
+81
+0
+1/1 13
+2/2
+0
+02 91
+31
+3:5
+0:2
+4
+
+sta
+t
+
+[6181]-112
+B.E. (Computer)
+SOFTWARE TESTING AND QUALITY ASSURANCE
+(2019 Pattern) (Semester - VII) (410245D) (Elective - IV)
+[Max. Marks : 70
+
+ic-
+
+0:2
+
+.24
+
+3:5
+
+30
+
+31
+
+91
+
+Identify how the different Static Test Case Design Techniques are useful
+for Software Testing?
+[6]
+
+49
+
+Q1) a)
+
+4s
+tat
+
+Instructions to the candidates:
+1) Answer Q1 or Q2, Q3 or Q4, Q5 or Q6, Q7 or Q8.
+2) Neat diagrams must be drawn wherever necessary.
+3) Figures to the right side indicate full marks.
+4) Assume suitable data if necessary.
+
+23
+8
+
+Time : 2½ Hours]
+
+Interpret the different Dynamic Test Design Techniques.
+
+[6]
+
+c)
+
+What do you think about static techniques.
+
+[6]
+
+02
+
+2/2
+
+GP
+
+01
+
+b)
+
+1/1
+
+8
+
+81
+
+[6]
+
+23
+
+Can you illustrate Adhoc Testing with example.
+
+ic-
+
+.23
+
+Q2) a)
+
+CE
+
+OR
+
+How would you explain unit Testing and Integration Testing?
+
+c)
+
+State in your own words why Regression Testing in important?
+
+tat
+
+[6]
+
+31
+
+3:5
+
+91
+
+30
+
+Illustrate different characteristics of software in detail.
+
+[6]
+
+0:2
+
+4s
+
+8.2
+
+.24
+49
+
+Q3) a)
+
+[6]
+
+16
+
+b)
+
+c)
+
+Can you clarify different levels of CMM.
+
+2/2
+
+1/1
+
+[5]
+
+Why Software has Defects? Explain in details.
+
+[6]
+
+b)
+
+Can you distinguish between Q.A. and Q.C.
+
+[6]
+
+c)
+
+Explain in detail Pillars of Quality Management System.
+
+[5]
+
+49
+
+.24
+
+8.2
+
+16
+
+Q4) a)
+
+.23
+
+81
+
+GP
+
+CE
+
+OR
+
+02
+
+Identify different steps involved in Software Development Process.
+[6]
+
+01
+
+b)
+
+P.T.O.
+
+[6]
+
+b)
+
+Illustrate selenium Tool suite in detail.
+
+[6]
+
+c)
+
+How would you explain Robotic Process Automation (RPA).
+
+ic-
+
+23
+8
+
+How to choose an Automation tool? Explain in briefly.
+
+C
+8.2
+E
+16
+.23 GP
+81
+0
+1/1 13
+2/2
+0
+02 91
+31
+3:5
+0:2
+4
+
+sta
+t
+
+Q5) a)
+
+[6]
+
+OR
+
+Construct different automated testing process.
+
+[6]
+
+b)
+
+What is selenium RC? Explain in detail.
+
+[6]
+
+c)
+
+What do you understand selenium grid? Explain it.
+
+[6]
+
+[6]
+
+ic-
+
+Can you illustrate Total Quality Management. Explain in detail.
+
+4s
+tat
+
+Q7) a)
+
+23
+8
+
+Q6) a)
+
+c)
+
+What do you understand by software maintenance? Explain in detail.
+[5]
+
+3:5
+
+02
+
+01
+
+[6]
+
+2/2
+
+Can you Clarify Flow Chart. Run charts, control charts.
+
+GP
+
+Q8) a)
+
+31
+
+91
+
+30
+
+49
+
+OR
+
+[6]
+
+0:2
+
+Illustrate Ishikawals 7 basic Tools in detail.
+
+.24
+
+b)
+
+c)
+
+What are the different task goal and metric in SQA?
+
+.23
+
+23
+
+8
+
+81
+
+1/1
+
+What are the facts to achieving the software quality. Explain in detail.
+[6]
+
+CE
+
+b)
+
+tat
+3:5
+
+0:2
+
+4s
+02
+
+30
+1/1
+
+2/2
+
+01
+16
+
+.23
+
+81
+
+GP
+CE
+8.2
+.24
+2
+
+49
+
+[6181]-112
+
+31
+
+91
+
+
+
+49
+
+.24
+
+8.2
+
+16
+
+ic-
+
+[5]
+
+SEAT No. :
+
+23
+7
+
+Total No. of Questions : 8]
+
+[Total No. of Pages : 2
+
+sta
+t
+
+ic-
+
+PC2379
+
+C
+8.2
+E
+16
+.23 GP
+72
+0
+0/1 13
+2/2
+0
+02 91
+41
+3:4
+0:2
+7
+
+[6354]-496
+B.E. (Computer Engineering)
+SOFTWARE TESTING & QUALITY ASSURANCE
+(2019 Pattern) (Semester - VII) (Elective - IV) (410245 D)
+
+ic7s
+tat
+
+[6]
+
+2/2
+
+02
+
+01
+GP
+
+[6]
+
+41
+
+Can you explain statement coverage & Branch coverage testing?
+OR
+
+[6]
+
+Explain in detail performance testing with example.
+
+[6]
+
+c)
+
+What do you think about dynamic techniques?
+
+[6]
+
+0:2
+
+.24
+
+c)
+
+Illustrate selenium’s IDE and explain indetail.
+
+0/1
+
+Why software has defects? explain in detail.
+
+b)
+
+Explain in detail reliability of quality Process.
+
+c)
+
+Explain Important Aspects of quality management.
+1
+
+49
+
+.24
+
+8.2
+
+16
+
+.23
+
+72
+
+Q4) a)
+
+[6354]-496
+
+02
+
+[6]
+[6]
+[5]
+
+2/2
+
+01
+
+GP
+CE
+
+OR
+
+3:4
+
+Can you clarify different levels of cmm.
+
+30
+
+b)
+
+41
+
+91
+
+Differentiate between quality assurance & qualits contorl.
+
+49
+
+Q3) a)
+
+7s
+
+8.2
+
+tat
+
+16
+
+ic-
+
+23
+
+7
+
+72
+
+b)
+
+.23
+
+0/1
+
+Explain any two functional testing.
+
+CE
+
+Q2) a)
+
+3:4
+
+91
+
+Explain any two non functional testing.
+
+30
+
+c)
+
+0:2
+
+[6]
+
+49
+
+b)
+
+Identify the importance of Regression testing & explain it.
+
+.24
+
+Q1) a)
+
+[Max. Marks : 70
+
+23
+7
+
+Time : 2½ Hours]
+Instructions to the candidates:
+1) Solve Q.1 or Q.2, Q.3 or Q.4, Q.5 or Q.6, Q.7 or Q.8.
+2) Figures to the right side indicate full marks.
+3) Assume suitable data if necessary.
+4) Neat diagrams must be drawn wherever necessary.
+
+[6]
+[6]
+[5]
+P.T.O.
+
+[6]
+
+b)
+
+Construct different automated festing process.
+
+[6]
+
+c)
+
+Explain Robotic process Automation in details.
+
+sta
+t
+
+ic-
+
+23
+7
+
+Illustrate selenium tool suite in detail.
+
+C
+8.2
+E
+16
+.23 GP
+72
+0
+0/1 13
+2/2
+0
+02 91
+41
+3:4
+0:2
+7
+
+Q5) a)
+
+[6]
+
+OR
+[6]
+
+b)
+
+How would you explain selenium web driver? Explain it
+
+[6]
+
+c)
+
+Construct different automated testing process.
+
+[6]
+
+Q7) a)
+
+23
+7
+
+What is performance testing. What is use of it.
+
+Can you explain how to maintain SQA.
+
+c)
+
+Explain six sigma characteristics in details.
+
+0:2
+
+41
+
+3:4
+
+91
+
+[5]
+
+Compare flow charts and control chart in detail.
+
+[6]
+
+2/2
+
+02
+
+01
+
+Q8) a)
+
+30
+
+49
+
+OR
+
+[6]
+
+7s
+tat
+
+Compare Run charts and control chart in detail.
+
+.24
+
+b)
+
+[6]
+
+ic-
+
+Q6) a)
+
+c)
+
+Compare the Ishikawa’s flow chart and histogram tool.
+
+[5]
+
+tat
+7s
+02
+
+0:2
+3:4
+
+30
+0/1
+
+2/2
+
+01
+16
+
+.23
+
+72
+
+GP
+CE
+8.2
+.24
+2
+
+49
+
+[6354]-496
+
+41
+
+91
+
+… … …
+
+49
+
+.24
+
+8.2
+
+16
+
+ic-
+
+.23
+
+23
+
+7
+
+72
+
+CE
+
+[6]
+
+0/1
+
+Explain in detail total quality management.
+
+GP
+
+b)
+
+SEAT No. :
+
+23
+7
+
+Total No. of Questions : 8]
+
+[Total No. of Pages : 2
+
+sta
+t
+
+ic-
+
+PE-2203
+
+C
+8.2
+E
+16
+.23 GP
+72
+0
+2/1 13
+2/2
+0
+02 91
+51
+3:3
+8:0
+6
+
+[6584] - 102
+B.E. (Computer Engineering)
+SOFTWARE TESTING AND QUALITY ASSURANCE
+(2019 Pattern) (Semester - VII) (410245 D) (Elective - IV)
+Time : 2½ Hours]
+
+[Max. Marks : 70
+
+Figures to the right indicate full marks.
+
+3)
+
+Neat diagrams must be drawn wherever necessary.
+
+4)
+
+Assume suitable additional data, if necessary.
+
+5)
+
+Use of a non-programmable calculator is allowed.
+
+8:0
+
+3:3
+
+91
+
+49
+
+[6]
+
+51
+
+Differentiate between blackbox and whitebox testing.
+
+30
+
+Q1) a)
+
+ic-
+
+2)
+
+6s
+tat
+
+Solve Q.1 or Q.2, Q.3 or Q.4, Q.5 or Q.6, Q.7 or Q.8.
+
+.24
+
+1)
+
+23
+7
+
+Instructions to the candidates :
+
+How would you explain system testing & acceptance testing.
+
+c)
+
+What do you mean by unit and integration testing. What are the approaches
+used in integration testing?
+[6]
+
+7
+
+72
+
+2/1
+
+2/2
+
+02
+
+[6]
+
+23
+
+OR
+
+b)
+
+What is cookies testing? Explain cookies testing with an example.
+
+[6]
+
+c)
+
+Differentiate between functional testing and Non functional testing.
+
+[6]
+
+3:3
+
+51
+
+91
+
+02
+
+30
+
+2/2
+
+01
+
+8:0
+
+8.2
+
+.24
+
+49
+
+Write a note on customer satisfaction.
+
+GP
+
+Q3) a)
+
+[6]
+
+tat
+
+Discuss Boundary valve analysis and equivalence class partition.
+
+16
+
+Q2) a)
+
+6s
+
+ic-
+
+.23
+
+CE
+
+GP
+
+01
+
+b)
+
+[5]
+[6]
+
+c)
+
+Can you explain quality plan in details.
+
+[6]
+
+72
+
+.23
+
+16
+8.2
+.24
+49
+
+OR
+
+2/1
+
+Discuss problematic areas in software development life cycle.
+
+CE
+
+b)
+
+P.T.O.
+
+Explain Why - ISO - 9001 standard & it's important's in software testing.
+[5]
+
+b)
+
+What do you understand regarding quality control & explain two methods
+of quality control.
+[6]
+
+c)
+
+List & explain the limitations of CMM model.
+
+[6]
+
+Q5) a)
+
+List & explain benefits of Automation Testing.
+
+[6]
+
+b)
+
+What is performance testing? Explain the uses of it as well.
+
+[6]
+
+c)
+
+Explain different Automated Testing process.
+
+[6]
+
+23
+7
+
+C
+8.2
+E
+16
+.23 GP
+72
+0
+2/1 13
+2/2
+0
+02 91
+51
+3:3
+8:0
+6
+
+sta
+t
+
+ic-
+
+23
+7
+
+Q4) a)
+
+6s
+tat
+
+[6]
+
+02
+
+51
+
+[5]
+
+2/2
+
+Can you explain how to maintain SQA.
+
+c)
+
+Explain the six sigma characteristics in detail.
+
+[6]
+
+72
+
+2/1
+
+Compare the Ishikawa's flowchart & Histogram tools.
+
+CE
+
+b)
+
+ictat
+8:0
+
+6s
+
+Explain ISO 9000 standard in detail.
+
+.24
+
+Q8) a)
+
+OR
+
+8.2
+
+16
+
+.23
+
+23
+
+[6]
+
+c)
+
+Explain the activities to achieve high software quality in detail.
+
+16
+
+.23
+
+2/1
+
+72
+
+GP
+CE
+8.2
+
+.24
+49
+
+2
+
+51
+
+02
+
+2/2
+
+01
+
+30
+
+49
+
+♣♣♣
+
+3:3
+
+Explain in brief - Histogram, Flowchart & Control chart.
+
+91
+
+b)
+
+[6584] - 102
+
+7
+
+30
+
+01
+
+Q7) a)
+
+Illustrate selenium's IQE. Explain in details.
+
+GP
+
+c)
+
+[6]
+
+3:3
+
+91
+
+How would you explain R.P.A.
+
+49
+
+b)
+
+[6]
+
+8:0
+
+Explain different mannual testing process
+
+.24
+
+Q6) a)
+
+ic-
+
+OR
+
+[5]
+[6]
+[6]
+
+

@@ -1,0 +1,2542 @@
+SEAT No. :
+
+23
+8
+
+Total No. of Questions : 8]
+
+[Total No. of Pages : 2
+
+ic-
+
+P550
+
+sta
+t
+
+[6004]-485
+
+C
+8.2
+E
+16
+.23 GP
+82
+0
+4/0 13
+6/2
+0
+02 91
+31
+4:4
+2:4
+8
+
+B.E. (Computer Engineering)
+CYBER SECURITY AND DIGITAL FORENSICS
+(2019 Pattern) (Semester - VII) (Elective - III) (410244C)
+
+ic-
+
+8s
+tat
+
+4:4
+
+31
+
+91
+
+30
+
+What is the significance of data recovery and backup? Explain various
+data recovery solutions.
+[9]
+
+6/2
+
+02
+
+01
+
+b)
+
+2:4
+
+.24
+
+Explain in brief computer forensic services. Write the applications of
+digital forensics in military.
+[8]
+
+49
+
+Q1) a)
+
+[Max. Marks : 70
+
+23
+8
+
+Time : 2½ Hours]
+Instructions to the candidates:
+1) Answer Q.1 or Q.2, Q.3 or Q.4, Q.5 or Q.6, Q.7 or Q.8.
+2) Neat diagrams must be drawn wherever necessary.
+3) Figures to the right indicate full marks.
+4) Use of Calculator is allowed.
+5) Assume suitable data if necessary.
+
+4/0
+
+8
+
+82
+
+CE
+
+23
+
+ic-
+
+.23
+
+tat
+
+Discuss the various legal aspects of collecting and storing digital evidence.[9]
+
+30
+
+8s
+
+2:4
+
+OR
+
+[9]
+
+4:4
+
+91
+
+What are different computer evidence processing steps?
+
+49
+
+b)
+
+[9]
+
+16
+
+Q3) a)
+
+How does computer forensics help in law enforcement?
+
+8.2
+
+b)
+
+What are the various business oriented digital forensic techniques? [8]
+
+.24
+
+Q2) a)
+
+GP
+
+OR
+
+b)
+
+What are various methods of collecting digital evidence ?Enlist the various
+digital collection steps.
+[9]
+
+02
+
+6/2
+
+4/0
+
+82
+
+GP
+
+CE
+
+.23
+
+[9]
+
+OR
+
+8.2
+
+16
+
+Explain the approaches for seizing digital evidence at the crime scene.[8]
+
+.24
+
+b)
+
+Explain different approaches for validating forensic data.
+
+49
+
+Q5) a)
+
+31
+
+What is chain custody? How we can control the contamination of digital
+evidence?
+[9]
+
+01
+
+Q4) a)
+
+P.T.O.
+
+Explain the process of identifying digital evidence in computer forensics.[9]
+
+b)
+
+Explain Network forensics and order of volatility for computer system.[8]
+
+sta
+t
+
+ic-
+
+23
+8
+
+Q6) a)
+
+b)
+
+State the features of any five computer forensic software tools.
+
+[9]
+
+Write short notes on
+
+[9]
+
+C
+8.2
+E
+16
+.23 GP
+82
+0
+4/0 13
+6/2
+0
+02 91
+31
+4:4
+2:4
+8
+
+Q7) a)
+
+i)
+
+Task performed by digital forensic tool
+
+ii)
+
+Tools for email forensics
+
+iii)
+
+Techniques for email forensic investigation
+
+ii)
+
+Investigating Email crimes and investigations
+
+iii)
+
+NIST standards for forensic technologies
+
+4:4
+
+6/2
+
+02
+
+31
+
+30
+
+01
+
+2:4
+
+Role of client and server in email
+
+91
+
+i)
+
+GP
+
+[9]
+
+8s
+tat
+
+Write short notes on
+
+49
+
+b)
+
+[9]
+
+ic-
+
+State the features of any five computer forensic hardware tools.
+
+.24
+
+Q8) a)
+
+23
+8
+
+OR
+
+4/0
+
+23
+
+8
+
+82
+2
+
+49
+
+[6004]-485
+
+.24
+
+8.2
+
+16
+
+2:4
+4:4
+
+31
+
+02
+
+6/2
+
+4/0
+
+82
+
+.23
+
+CE
+
+GP
+
+01
+
+30
+
+49
+
+91
+
+.24
+
+8s
+
+8.2
+
+tat
+
+16
+
+ic-
+
+.23
+
+CE
+
+
+
+SEAT No. :
+
+23
+8
+
+Total No. of Questions : 8]
+
+[Total No. of Pages : 2
+
+ic-
+
+PB2248
+
+C
+8.2
+E
+16
+.23 GP
+81
+0
+8/0 13
+5/2
+0
+02 91
+41
+3:5
+9:2
+6
+
+sta
+t
+
+[6263]-86
+B.E. (Computer Engineering)
+CYBER SECURITY AND DIGITAL FORENSICS
+(2019 Pattern) (Semester - VII) (410244 C) (Elective - III)
+
+ic-
+
+6s
+tat
+
+9:2
+
+3:5
+
+41
+
+91
+
+5/2
+
+02
+
+01
+
+8/0
+
+23
+
+8
+
+81
+
+GP
+
+ic-
+
+.23
+
+tat
+
+6s
+
+9:2
+
+3:5
+
+41
+
+02
+
+30
+8/0
+
+5/2
+
+01
+
+.23
+
+81
+
+What are some common data hiding techniques? Explain any one in
+detail?
+[8]
+What is the honey net project, and how does it contribute to network
+forensics?
+[9]
+OR
+
+[6263]-86
+
+1
+
+49
+
+.24
+
+8.2
+
+16
+
+b)
+
+GP
+
+Q5) a)
+
+CE
+
+b)
+
+49
+
+Q4) a)
+
+91
+
+.24
+
+b)
+
+What are various options available for collecting digital evidences? Explain
+in detail?
+[8]
+Explain the essential steps in processing digital evidence from the crime
+scene?
+[9]
+OR
+What is the volatile evidence in the context of computer forensics, and
+why is it important to collect in quickly?
+[8]
+What are the hypical steps involve in the collection of digital evidence?[9]
+
+16
+
+Q3) a)
+
+CE
+
+b)
+
+8.2
+
+Q2) a)
+
+30
+
+49
+
+b)
+
+What are the typical services offered by computer forensics
+professionals? (explain any two)
+[9]
+What specific technologies are utilized in the field of business computer
+forensics? (Describe any two)
+[9]
+OR
+How does computer forensics technology vary cross different sectors
+like miltary law enforcement & business?
+[9]
+What are the key components of a data recovery solutions in computer
+forensics? Explain in detail.
+[9]
+
+.24
+
+Q1) a)
+
+[Max. Marks : 70
+
+23
+8
+
+Time : 2½ Hours]
+Instructions to the candidates:
+1) Answer Q.1 or Q.2, Q.3 or Q.4, Q.5 or Q.6, Q.7 or Q.8.
+2) Neat diagrams must be drawn wherever necessary.
+3) Figures to the right side indicate full marks.
+4) Assume suitable data if necessary.
+
+P.T.O.
+
+What precautions should investigators take to prevent data alteration or
+loss during the seicure process? Explain any one in detail?
+[8]
+What are the challenges and best practices associated with performing
+remove acqisitions?
+[9]
+
+C
+8.2
+E
+16
+.23 GP
+81
+0
+8/0 13
+5/2
+0
+02 91
+41
+3:5
+9:2
+6
+
+sta
+t
+
+b)
+
+ic-
+
+23
+8
+
+Q6) a)
+
+Q7) a)
+
+Whar are the common examples of email crime & violations that may
+necessitate investigation? Explain any one in detail?
+[9]
+
+b)
+
+Explain any software tool using in computer forensics investigation and
+its respective purpose?
+[9]
+OR
+
+b)
+
+Validating & testing forensics software
+
+c)
+
+e-mail investigation
+
+6s
+tat
+9:2
+3:5
+
+30
+
+41
+
+91
+
+ic-
+
+Computer forensics hardware tools
+
+.24
+
+a)
+
+49
+
+[18]
+
+23
+8
+
+Q8) Write short note (any two)
+
+02
+
+5/2
+
+8/0
+
+23
+
+8
+
+81
+
+[6263]-86
+
+2
+
+49
+
+.24
+
+8.2
+
+16
+
+9:2
+3:5
+
+41
+
+02
+
+5/2
+
+8/0
+
+81
+
+.23
+
+CE
+
+GP
+
+01
+
+30
+
+49
+
+91
+
+.24
+
+6s
+
+8.2
+
+tat
+
+16
+
+ic-
+
+.23
+
+CE
+
+GP
+
+01
+
+  
+
+SEAT No. :
+
+23
+7
+
+Total No. of Questions : 8]
+
+[Total No. of Pages : 2
+
+sta
+t
+
+ic-
+
+PD4581
+
+[6404]-86
+
+C
+8.2
+E
+16
+.23 GP
+72
+0
+0/0 13
+5/2
+0
+02 91
+51
+3:5
+2:5
+2
+
+B.E. (Computer Engineering)
+CYBER SECURITY AND DIGITAL FORENSICS
+(2019 Pattern) (Semester - VII) (Elective - III) (410244 C)
+
+ic-
+
+2s
+tat
+
+3:5
+
+91
+
+49
+
+02
+
+5/2
+
+OR
+
+GP
+
+51
+
+30
+
+How do law enforcement computer forensic technolgies aid in criminal
+investigation?
+[9]
+
+01
+
+b)
+
+2:5
+
+What is primary purpose of computer forensics & how does computer
+forensic differ from other forensic disciplines?
+[9]
+
+.24
+
+Q1) a)
+
+[Max. Marks : 70
+
+23
+7
+
+Time : 2½ Hours]
+Instructions to the candidates:
+1) Answers Q.1 or Q.2, Q.3 or Q.4, Q.5 or Q.6, Q.7 or Q.8.
+2) Neat diagrams must be drawn wherever necessary.
+3) Figures to the right indicate full marks.
+4) Assume suitable data, if necessary.
+
+b)
+
+What startegies can individuals & organizations use to ensure effective
+data backup for recovery purposes? Describe any two in detail.
+[9]
+
+Q3) a)
+
+What are some common obsracles faced when collecting digital evidence.
+Explain in detail.
+[8]
+
+b)
+
+What method & techniques are commonly used to verify & authenticate
+computer images? Explain any two?
+[9]
+
+2:5
+
+3:5
+
+51
+
+02
+
+5/2
+
+0/0
+
+72
+
+.23
+
+16
+
+8.2
+
+.24
+
+b)
+
+Describe the general procedure for collecting and archiving digital
+evidence in computer forensics?
+[9]
+Explain duplication & Preservation of digital evidence?
+[8]
+
+49
+
+Q4) a)
+
+CE
+
+OR
+
+GP
+
+01
+
+30
+
+49
+
+91
+
+.24
+
+2s
+
+8.2
+
+tat
+
+16
+
+ic-
+
+.23
+
+23
+
+7
+
+72
+
+0/0
+
+What are some examples of technologies used in computer forensic
+investigation? Explain any two.
+[9]
+
+CE
+
+Q2) a)
+
+P.T.O.
+
+What steps should be taken to secure computer incident or crime scene
+before begining the search for digital evidence?
+[8]
+
+b)
+
+What is the honeyenet project, and how does it contribute to network
+forensics?
+[9]
+
+C
+8.2
+E
+16
+.23 GP
+72
+0
+0/0 13
+5/2
+0
+02 91
+51
+3:5
+2:5
+2
+
+sta
+t
+
+ic-
+
+23
+7
+
+Q5) a)
+
+OR
+
+b)
+
+What are some common network tool used in network forensics, Explain
+any one detail?
+[8]
+
+Q7) a)
+
+What factor should be considered when evaluating the computer
+forensics tool need for an investigation? Explain any two in detail? [9]
+
+b)
+
+What is role of hardware tool in computer forensics, and howduthey
+differ form software tools?
+[9]
+
+01
+
+2:5
+
+[18]
+
+b)
+
+e-mail investigation
+
+c)
+
+Computer forensics software tool
+
+tat
+72
+
+0/0
+
+5/2
+
+02
+
+3:5
+
+51
+
+91
+2
+
+49
+
+.24
+
+8.2
+
+16
+
+.23
+
+CE
+
+GP
+
+01
+
+30
+
+49
+[6404]-86
+
+2:5
+
+2s
+
+… … …
+
+.24
+
+8.2
+
+16
+
+ic-
+
+.23
+
+23
+
+7
+
+72
+
+0/0
+
+5/2
+
+02
+
+Validating & testing forensics software
+
+GP
+
+a)
+
+CE
+
+3:5
+
+Q8) Write short note on (any 2)
+
+51
+
+30
+
+49
+
+OR
+
+91
+
+2s
+tat
+
+ic-
+
+23
+7
+
+Why is obtaining a digital has important while storing digital evidence,
+and how is it generated? Explain in detail.
+[9]
+
+.24
+
+Q6) a)
+
+SEAT No. :
+
+23
+8
+
+Total No. of Questions : 8]
+
+[Total No. of Pages : 2
+
+ic-
+
+PA-1663
+
+sta
+t
+
+[5927]-347
+
+C
+8.2
+E
+16
+.23 GP
+80
+0
+9/0 13
+1/2
+0
+02 91
+31
+3:5
+5:3
+6
+
+B.E. (Computer Engg.)
+CYBER SECURITY AND DIGITAL FORENSICS
+(2019 Pattern) (Elective-III) (Semester-VII) (410244(C))
+
+ic6s
+tat
+
+91
+
+02
+
+31
+
+30
+
+01
+
+OR
+
+[9]
+
+3:5
+
+Explain in detail different Computer Forensics Services.
+
+49
+
+b)
+
+5:3
+
+What is computer forensics? What is the use of Computer Forensics in
+Law Enforcement? What are different computer forensics schemes? [9]
+
+.24
+
+Q1) a)
+
+[Max. Marks : 70
+
+23
+8
+
+Time : 2½ Hours]
+Instructions to the candidates:
+1) Answer Q1 or Q2, Q3, or Q4, Q5 or Q6, Q7 or Q8.
+2) Neat diagrams must be drawn wherever necessary.
+3) Figures to the right indicate full marks.
+4) Assume suitable data if necessary.
+5) Use of scientific calculator is permitted.
+
+b)
+
+What are the benefits of professional forensics methodology? What are
+steps taken by computer forensics specialist?
+[9]
+
+Q3) a)
+
+What are evidences? What are the simple reasons to collect evidences?
+What are different options for collecting evidences?
+[8]
+
+b)
+
+What is chain of custody? Explain the process of chain of custody. [9]
+
+9/0
+
+23
+
+8
+
+80
+
+5:3
+
+02
+
+01
+
+What is the general procedure for evidence collection?
+
+3:5
+
+30
+
+OR
+
+31
+
+91
+
+.24
+
+49
+Q4) a)
+
+6s
+
+8.2
+
+tat
+
+16
+
+ic-
+
+.23
+
+CE
+
+1/2
+
+Explain in details Computer Forensics Assistance to Human Resources.[9]
+
+GP
+
+Q2) a)
+
+[8]
+
+Q5) a)
+
+Explain how to perform remote and live acquisitions with an appropriate
+example.
+[9]
+
+[5927]-347
+
+1
+
+.24
+
+OR
+
+8.2
+
+9/0
+
+80
+
+What are the different approaches for validating forensic data?
+
+49
+
+b)
+
+16
+
+.23
+
+CE
+
+1/2
+
+What are general computer evidence processing steps? Explain in detail.[9]
+
+GP
+
+b)
+
+[9]
+
+P.T.O.
+
+23
+8
+
+Q6) a) Brief about the approaches for seizing digital evidence at the crime scene.[9]
+Give in detail the different techniques to hide data in digital forensics.[9]
+
+Q7) a)
+
+Explain types of digital forensics tools. Also explain the task performed
+by these tools.
+[8]
+
+b)
+
+C
+8.2
+E
+16
+.23 GP
+80
+0
+9/0 13
+1/2
+0
+02 91
+31
+3:5
+5:3
+6
+
+sta
+t
+
+ic-
+
+b)
+
+State the features of any five computer forensics software tools.
+
+[9]
+
+OR
+
+5:3
+
+6s
+tat
+
+30
+
+1/2
+
+02
+
+01
+
+9/0
+
+23
+
+8
+
+80
+
+GP
+
+2
+
+49
+
+.24
+
+8.2
+
+16
+
+5:3
+3:5
+
+31
+
+02
+
+1/2
+
+9/0
+
+80
+
+.23
+
+CE
+
+GP
+
+01
+
+30
+
+49
+
+91
+
+.24
+
+6s
+
+8.2
+
+tat
+
+16
+
+ic-
+
+.23
+
+CE
+
+3:5
+
+91
+
+
+
+49
+[5927]-347
+
+[9]
+
+ic-
+
+Explain the process for validating and testing forensics software.
+
+.24
+
+b)
+
+23
+8
+
+Explain the role of client and server in email and some of the tools for
+email forensics.
+[8]
+
+31
+
+Q8) a)
+
+SEAT No. :
+
+23
+8
+
+Total No. of Questions : 8]
+
+[Total No. of Pages : 2
+
+sta
+t
+
+ic-
+
+P-6556
+
+C
+8.2
+E
+16
+.23 GP
+80
+0
+7/1 13
+2/2
+0
+02 91
+31
+3:4
+5:3
+0
+
+[6181]-106
+B.E. (Computer Engineering)
+CYBER SECURITY AND DIGITAL FORENSICS
+(2019 Pattern) (Semester - VII) (410244 C) (Elective - III)
+Time : 2½ Hours]
+
+[Max. Marks : 70
+
+2)
+
+Neat diagrams must be drawn wherever necessary.
+
+3)
+
+Figures to the right indicate full marks.
+
+4)
+
+Assume suitable data, if necessary.
+
+0s
+tat
+5:3
+
+91
+
+49
+
+ic-
+
+Answer Q.1 or Q.2, Q.3 or Q.4, Q.5 or Q.6, Q.7 or Q.8.
+
+.24
+
+1)
+
+23
+8
+
+Instructions to the candidates :
+
+b)
+
+In what ways can business benefit from computer forensics technology?
+Explain in detail.
+[9]
+
+31
+
+2/2
+
+02
+
+01
+
+GP
+
+3:4
+
+What are the typical steps followed by computer forensics specialists in
+an investigation? Explain any 2 in detail.
+[9]
+
+30
+
+Q1) a)
+
+7/1
+
+CE
+
+OR
+
+What kind of digital evidences can be collected in computer forensics?
+Explain in detail.
+[9]
+
+b)
+
+Why is data backup & recovery important in computer forensics? [9]
+
+Q3) a)
+
+What is the primary purpose of collecting evidence in digital forensics?
+Explain in detail.
+[9]
+
+b)
+
+What are the typical steps involved in the collection of digital evidences?
+[8]
+
+GP
+
+5:3
+
+3:4
+
+31
+
+02
+
+OR
+
+2/2
+
+01
+
+30
+
+49
+
+91
+
+.24
+
+0s
+
+8.2
+
+tat
+
+16
+
+ic-
+
+.23
+
+23
+
+8
+
+80
+
+Q2) a)
+
+b)
+
+What method & techniques are commonly used to verify & authenticate
+computer images. explain any two in detail?
+[9]
+
+49
+
+.24
+
+8.2
+
+16
+
+.23
+
+80
+
+7/1
+
+Explain the different types of digital evidence that can be collected in
+computer forensics?
+[8]
+
+CE
+
+Q4) a)
+
+P.T.O.
+
+23
+8
+
+ic-
+
+49
+
+23
+8
+
+ic-
+
+0s
+tat
+
+30
+
+What is function e-mail server, how does it store & manage e-mail data?
+[9]
+
+02
+
+2/2
+
+[9]
+
+7/1
+
+Write short note (any one) :
+e-mail forensics tools.
+
+ii)
+
+Computer forensics hardware tools
+
+tat
+80
+
+7/1
+
+2/2
+
+02
+
+3:4
+
+31
+
+91
+49
+
+2
+
+.24
+
+8.2
+
+16
+
+.23
+
+CE
+
+GP
+
+01
+
+30
+
+49
+[6181]-106
+
+5:3
+
+0s
+
+
+
+.24
+
+8.2
+
+16
+
+ic-
+
+.23
+
+23
+
+8
+
+80
+
+i)
+
+CE
+
+b)
+
+GP
+
+01
+
+Q8) a)
+
+OR
+
+5:3
+
+What factors should be considered when evaluating computer forensics
+tool needs for an investigations. Explain any two in detail?
+[9]
+
+.24
+
+b)
+
+How does email play a significant role in digital investigations? What
+types of information can be obtain from email Header that may be relevant
+in investigations?
+[9]
+
+3:4
+
+Q7) a)
+
+Describe the process of seizing digital evidence at a crime or incident
+scene?
+[9]
+
+31
+
+b)
+
+91
+
+Q6) a)
+
+sta
+t
+
+b)
+
+How do investigators determine which data is relevant to collect & analyze
+in digital forensics investigation?
+[8]
+What is the honeynet project, how does it contribute to network
+forensics?
+[9]
+OR
+Why is data validation crucial in digital forensics & what methods are
+commelily used for data validation?
+[8]
+
+C
+8.2
+E
+16
+.23 GP
+80
+0
+7/1 13
+2/2
+0
+02 91
+31
+3:4
+5:3
+0
+
+Q5) a)
+
+SEAT No. :
+
+23
+7
+
+Total No. of Questions : 8]
+
+PC2373
+
+[Total No. of Pages : 2
+
+ic-
+
+[6354]-490
+
+C
+8.2
+E
+16
+.23 GP
+71
+0
+8/1 13
+2/2
+0
+02 91
+41
+3:4
+4:2
+1
+
+sta
+t
+
+B.E. (Computer Engineering)
+CYBER SECURITY AND DIGITAL FORENSICS
+(Elective -III) (2019 Pattern) (Semester-VII) (410244 C)
+[Max. Marks : 70
+
+ic-
+
+23
+7
+
+Time : 2½ Hours]
+Instructions to the candidates:
+1) Answer Q.1 or Q.2, Q.3 or Q.4,Q.5 or Q.6, Q.7, or Q.8.
+2) Neat diagrams must be drawn wherever necessary.
+3) Figures to the right indicate full marks.
+4) Assume suitable data, if necessary.
+
+What are the typical steps followed by computer forensics specialists in
+an investigation? Explain any 2 in detail.
+[8]
+
+b)
+
+In what ways can business benefit from computer forensics technology
+explain in details?
+[9]
+
+4:2
+
+3:4
+
+30
+
+OR
+
+41
+
+91
+
+.24
+
+49
+
+Explain in details different computer forensics services.
+
+[9]
+
+2/2
+
+02
+
+01
+
+Q2) a)
+
+1s
+tat
+
+Q1) a)
+
+Q3) a)
+
+What are the typical steps involved in the collection of digital evidence?[9]
+
+tat
+
+[9]
+
+1s
+
+16
+
+4:2
+
+OR
+
+.24
+
+ic-
+
+23
+
+7
+
+71
+
+.23
+
+CE
+
+What are the different approaches for validating forensic data?
+
+8.2
+
+b)
+
+8/1
+
+Why is data backup & recovery important in computer forensics? [8]
+
+GP
+
+b)
+
+b)
+
+Discuss the various legal aspects of collecting and storing digital evidence.
+[9]
+
+Q5) a)
+
+What are same common network tools, used in network forensics. [9]
+
+b)
+
+Describe the process of seizing digital evidence at a crime or incident
+scene?
+[8]
+
+41
+
+02
+
+2/2
+
+8/1
+
+71
+
+.24
+49
+
+1
+
+8.2
+
+16
+
+.23
+
+CE
+
+GP
+
+01
+
+30
+
+49
+
+OR
+[6354]-490
+
+3:4
+
+Why collect evidence? collection options in digital evidence. explain in
+details?
+[9]
+
+91
+
+Q4) a)
+
+P.T.O.
+
+What is the honeynet project, how does it contribute to network forensics?
+[9]
+
+b)
+
+Give in detail the different techniques to hide data in digital forensics?[8]
+
+sta
+t
+
+C
+8.2
+E
+16
+.23 GP
+71
+0
+8/1 13
+2/2
+0
+02 91
+41
+3:4
+4:2
+1
+
+Q7) a)
+
+ic-
+
+23
+7
+
+Q6) a)
+
+Write short note on.
+
+b)
+
+[9]
+
+i)
+
+Tools for email forensics
+
+ii)
+
+Computer forensics hardware tools
+
+Explain the process for validating and testing forensics software.
+
+[9]
+
+Computer forensics software tools
+E-mail Investigations
+
+3:4
+
+41
+
+02
+
+01
+
+30
+
+49
+
+ii)
+
+4:2
+
+i)
+
+[9]
+
+1s
+tat
+
+Write short note on.
+
+91
+
+b)
+
+ic-
+
+What is function email server show does it store of mange e-mail data?[9]
+
+.24
+
+Q8) a)
+
+23
+7
+
+OR
+
+2/2
+
+8/1
+
+23
+
+7
+
+71
+2
+
+49
+
+[6354]-490
+
+.24
+
+8.2
+
+16
+
+4:2
+3:4
+
+41
+
+02
+
+2/2
+
+8/1
+
+71
+
+.23
+
+CE
+
+GP
+
+01
+
+30
+
+49
+
+91
+
+.24
+
+1s
+
+8.2
+
+tat
+
+16
+
+ic-
+
+.23
+
+CE
+
+GP
+
+
+
+SEAT No. :
+
+23
+7
+
+Total No. of Questions : 8]
+
+[Total No. of Pages : 2
+
+ic-
+
+PE-2197
+
+C
+8.2
+E
+16
+.23 GP
+72
+0
+7/1 13
+2/2
+0
+02 91
+51
+3:4
+3:5
+2
+
+sta
+t
+
+[6584]-96
+B.E. (Computer Engineering)
+CYBER SECURITY AND DIGITAL FORENSICS
+(2019 Pattern) (Semester - VII) (410244 C) (Elective-III)
+[Max. Marks : 70
+
+2s
+tat
+
+ic-
+
+23
+7
+
+Time : 2½ Hours]
+Instructions to the candidates:
+1) Answer Q.1 or Q.2, Q.3 or Q.4, Q.5 or Q.6, Q.7or Q.8.
+2) Neat diagrams must be drawn whenever necessary.
+3) Figures to the right indicate full marks.
+4) Assume suitable data, if necessary.
+
+Describe in brief the significance of data recovery and backup. Explain
+various data recovery solutions.
+[9]
+
+3:4
+
+30
+
+2/2
+
+02
+
+01
+
+7/1
+
+7
+23
+
+.23
+
+ic-
+
+Discuss the various legal aspects of collecting and storing digital evidence.
+[9]
+
+2s
+
+8.2
+
+30
+
+3:5
+
+OR
+
+[9]
+
+3:4
+
+91
+
+.24
+
+Enlist and explain different computer evidence processing steps.
+
+49
+
+b)
+
+tat
+
+16
+
+Q3) a)
+
+[9]
+
+72
+
+What is role of digital forensics in law enforcement?
+
+CE
+
+b)
+
+Explain in brief computer forensic services. Write the applications of
+Digital forensics in health care.
+[8]
+
+GP
+
+Q2) a)
+
+51
+
+49
+
+OR
+
+3:5
+
+b)
+
+91
+
+What are the various steps taken by computer forensics specialists. [8]
+
+.24
+
+Q1) a)
+
+b)
+
+What is chain custody? Discuss methods to control the contamination
+of digital evidence?
+[9]
+
+.23
+
+02
+
+2/2
+
+7/1
+
+72
+
+GP
+
+CE
+
+16
+
+[9]
+
+OR
+
+8.2
+
+Explain the approaches for seizing digital evidence at the crime scence.[8]
+
+.24
+
+b)
+
+Describe different approaches for validating forensics data.
+
+49
+
+Q5) a)
+
+51
+
+What are various methods of collecting digital evidence and explaine any
+four digital evidence collection steps.
+[9]
+
+01
+
+Q4) a)
+
+P.T.O.
+
+Describe the steps of identifying digital evidence in computer forensics.[9]
+
+b)
+
+Explain process of developing standard procedures for network forensics
+using network forensics tools.
+[8]
+
+C
+8.2
+E
+16
+.23 GP
+72
+0
+7/1 13
+2/2
+0
+02 91
+51
+3:4
+3:5
+2
+
+sta
+t
+
+ic-
+
+23
+7
+
+Q6) a)
+
+Q7) a)
+
+Write short notes on :
+
+b)
+
+[9]
+
+i)
+
+Computer forensics tools testing and validation.
+
+ii)
+
+E-mail crimes
+
+State the features of any five Computer forensic hardware tools.
+
+[9]
+
+What is the volatile evidence.
+
+ii)
+
+Specialized email crimes & investigations tools.
+
+3:4
+
+2/2
+
+02
+
+01
+
+7/1
+
+23
+
+7
+
+72
+
+GP
+[6584]-96
+
+2
+
+49
+
+.24
+
+8.2
+
+16
+
+3:5
+3:4
+
+51
+
+02
+
+2/2
+
+7/1
+
+72
+
+.23
+
+CE
+
+GP
+
+01
+
+30
+
+49
+
+91
+
+.24
+
+2s
+
+8.2
+
+tat
+
+16
+
+ic-
+
+.23
+
+CE
+
+51
+
+30
+
+49
+
+3:5
+
+Role of client and server in email.
+
+91
+
+i)
+
+
+
+[9]
+
+2s
+tat
+
+Write short notes :
+
+.24
+
+b)
+
+[9]
+
+ic-
+
+Q8) a)
+
+23
+7
+
+OR
+
+
