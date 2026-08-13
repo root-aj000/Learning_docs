@@ -1,6 +1,7 @@
 import "./globals.css";
+import "katex/dist/katex.min.css";
 import AppShell from "../components/AppShell";
-import { getMarkdownPaths } from "../lib/docs";
+import { getMarkdownPaths, getDocSummaries } from "../lib/docs";
 
 export const viewport = {
   width: "device-width",
@@ -9,17 +10,27 @@ export const viewport = {
 };
 
 export const metadata = {
-  title: "LearnDocs — Knowledge Base",
-  description: "A premium documentation viewer for ML, DL, LLM, and more. Browse markdown docs with Mermaid diagram support.",
+  title: {
+    default: "LearnDocs — Knowledge Base",
+    template: "%s · LearnDocs",
+  },
+  description:
+    "A premium documentation viewer for ML, DL, LLM, and more. Browse markdown docs with Mermaid diagram support and full-text search.",
 };
 
+const themeInit = `(function(){try{var t=localStorage.getItem("theme");if(!t){t=window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";}document.documentElement.dataset.theme=t;}catch(e){}})();`;
+
 export default function RootLayout({ children }) {
-  const docs = getMarkdownPaths();
+  const paths = getMarkdownPaths();
+  const summaries = getDocSummaries();
 
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInit }} />
+      </head>
       <body>
-        <AppShell docs={docs}>
+        <AppShell docs={paths} summaries={summaries}>
           {children}
         </AppShell>
       </body>

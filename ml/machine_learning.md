@@ -742,7 +742,7 @@ After installing Pandas, you can import it into your Python script as did above.
 
 The following is an example of creating a series from ndarray by using Pandas −
 
-```
+```python showLineNumbers
 import pandas as pd
 import numpy as np
 data = np.array(['g','a','u','r','a','v'])
@@ -1204,9 +1204,9 @@ To give you a brief idea of what skills you need to acquire, let us discuss some
 
 Most of the machine learning algorithms are heavily based on mathematics. The level of mathematics that you need to know is probably just a beginner level. What is important is that you should be able to read the notation that mathematicians use in their equations. For example - if you can read the notation and comprehend what it means, you are ready for learning machine learning. If not, you may need to brush up your mathematics knowledge.
 
-$$f_{AN}(net-\theta)=\begin{cases}\gamma & if\:net-\theta \geq \epsilon\\net-\theta & if - \epsilon
+$$f_{AN}(net-\theta)=\begin{cases}\gamma & if\:net-\theta \geq \epsilon\\net-\theta & if -\epsilon < net-\theta < \epsilon\end{cases}$$
 
-$$\displaystyle\\\max\limits_{\alpha}\begin{bmatrix}\displaystyle\sum\limits_{i=1}^m \alpha-\frac{1}{2}\displaystyle\sum\limits_{i,j=1}^m label^\left(\begin{array}{c}i\\ \end{array}\right)\cdot\:label^\left(\begin{array}{c}j\\ \end{array}\right)\cdot\:a_{i}\cdot\:a_{j}\langle x^\left(\begin{array}{c}i\\ \end{array}\right),x^\left(\begin{array}{c}j\\ \end{array}\right)\rangle \end{bmatrix}$$
+$$\displaystyle\\\max\limits_{\alpha}\begin{bmatrix}\displaystyle\sum\limits_{i=1}^m \alpha-\frac{1}{2}\displaystyle\sum\limits_{i,j=1}^m label^{(i)}\cdot\:label^{(j)}\cdot\:a_{i}\cdot\:a_{j}\langle x^{(i)},x^{(j)}\rangle \end{bmatrix}$$
 
 $$f_{AN}(net-\theta)=\left(\frac{e^{\lambda(net-\theta)}-e^{-\lambda(net-\theta)}}{e^{\lambda(net-\theta)}+e^{-\lambda(net-\theta)}}\right)\;$$
 
@@ -1226,11 +1226,11 @@ With these definitions, we can define s Bayesian classification rule −
 
 Here is an optimization function,
 
-$$\displaystyle\\\max\limits_{\alpha}\begin{bmatrix}\displaystyle\sum\limits_{i=1}^m \alpha-\frac{1}{2}\displaystyle\sum\limits_{i,j=1}^m label^\left(\begin{array}{c}i\\ \end{array}\right)\cdot\:label^\left(\begin{array}{c}j\\ \end{array}\right)\cdot\:a_{i}\cdot\:a_{j}\langle x^\left(\begin{array}{c}i\\ \end{array}\right),x^\left(\begin{array}{c}j\\ \end{array}\right)\rangle \end{bmatrix}$$
+$$\displaystyle\\\max\limits_{\alpha}\begin{bmatrix}\displaystyle\sum\limits_{i=1}^m \alpha-\frac{1}{2}\displaystyle\sum\limits_{i,j=1}^m label^{(i)}\cdot\:label^{(j)}\cdot\:a_{i}\cdot\:a_{j}\langle x^{(i)},x^{(j)}\rangle \end{bmatrix}$$
 
 Subject to the following constraints −
 
-$$\alpha\geq0,and\:\displaystyle\sum\limits_{i-1}^m \alpha_{i}\cdot\:label^\left(\begin{array}{c}i\\ \end{array}\right)=0$$
+$$\alpha\geq0,and\:\displaystyle\sum\limits_{i-1}^m \alpha_{i}\cdot\:label^{(i)}=0$$
 
 If you can read and understand the above, you are all set.
 
@@ -4064,10 +4064,12 @@ The uniform distribution is often used as a baseline for comparison with other d
 
 In probability theory, the probability density function of a continuous uniform distribution is defined as −
 
-$$f\left ( x \right )=\left\{\begin{matrix}
+$$
+f\left ( x \right )=\left\{\begin{matrix}
 1 & for\: a\leq x\leq b \\
 0 & otherwise \\
-\end{matrix}\right.$$
+\end{matrix}\right.
+$$
 
 where a and b are the minimum and maximum values of the distribution, respectively. mean of a uniform distribution is $\frac{a+b}{2} $ and the variance is $\frac{\left ( b-a \right )^{2}}{12}$
 
@@ -9907,7 +9909,7 @@ Temporal Difference Learning with a trace length of 1, is known as TD(1) which i
 ## Difference between Temporal Difference learning and Q-Learning
 
 The difference between Q-learning and Temporal Difference Learning based on a few aspects is tabulated below −
-AspectTemporal Difference (TD) LearningQ-LearningObjectiveEstimates**state-value function**${V(s)}$Estimates**action-value function**${Q(s, a)}$Type of AlgorithmState values ${V(s)}$Action-state values ${Q(s, a)}$Policy TypeModel-free, on-policy or off-policy reinforcement learningModel-free, off-policy reinforcement learning.Update RuleUpdates based on the next state's value (for state-value)Update based on maximum future action-value (for Q-function)Update Formula${V(s_t) \leftarrow V(s_t) + \alpha [r_{t+1} + \gamma V(s_{t+1}) - V(s_t)]}$${Q(s_t, a_t) \leftarrow Q(s_t, a_t) + \alpha [ r_{t+1} + \gamma \max_{{a'}} Q(s_{t+1}, a') - Q(s_t, a_t)]}$Exploration vs ExploitationDirectly follows the exploration-exploitation trade-off of the current policy like epsilon-greedy.Separates exploration through epsilon-greedy from learning the optimal policyType of Learning**Model-free**, learns from experience and bootstraps off of value estimates**Model-free**, learns from experience and aims to optimize the policyConvergenceConverges to a good approximation of the state-value function ${V(s)}$Converges to the optimal policy if enough exploration is doneExample AlgorithmsTD(0), SARSAQ-learning
+AspectTemporal Difference (TD) LearningQ-LearningObjectiveEstimates**state-value function**${V(s)}$Estimates**action-value function**${Q(s, a)}$Type of AlgorithmState values ${V(s)}$Action-state values ${Q(s, a)}$Policy TypeModel-free, on-policy or off-policy reinforcement learningModel-free, off-policy reinforcement learning.Update RuleUpdates based on the next state's value (for state-value)Update based on maximum future action-value (for Q-function)Update Formula${V(s_t) \leftarrow V(s_t) + \alpha [r_{t+1} + \gamma V(s_{t+1}) - V(s_t)]}${Q(s_t, a_t) \leftarrow Q(s_t, a_t) + \alpha [ r_{t+1} + \gamma \max_{{a'}} Q(s_{t+1}, a') - Q(s_t, a_t)]}$Exploration vs ExploitationDirectly follows the exploration-exploitation trade-off of the current policy like epsilon-greedy.Separates exploration through epsilon-greedy from learning the optimal policyType of Learning**Model-free**, learns from experience and bootstraps off of value estimates**Model-free**, learns from experience and aims to optimize the policyConvergenceConverges to a good approximation of the state-value function ${V(s)}$Converges to the optimal policy if enough exploration is doneExample AlgorithmsTD(0), SARSAQ-learning
 ## What is Temporal Difference Error?
 
 The TD error is defined as the gap between the current estimation ${V_t}$ and the discounted value estimate of ${V_{t+1}}$, compared to the reward obtained from moving from ${S_t}$ to ${S_{t+1}}$. The TD error at step t requires information from the next state and reward, making it inaccessible until step ${t + 1}$. Updating the value function with the TD error is referred to as a backup. The TD error is connected to the Bellman equation. The equation that defines Temporal Difference Error is −

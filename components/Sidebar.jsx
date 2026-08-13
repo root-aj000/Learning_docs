@@ -1,24 +1,49 @@
 "use client";
 
-import { useState, useMemo, useCallback } from "react";
+import { useState, useMemo, useCallback, useRef, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import {
+  BookOpen,
+  Brain,
+  Bot,
+  BarChart3,
+  Cpu,
+  GraduationCap,
+  Map,
+  Search,
+  X,
+  ChevronRight,
+  Folder,
+  FolderOpen,
+  FileText,
+  Layers,
+  Shield,
+  Scale,
+  Zap,
+  FlaskConical,
+  FileCheck,
+  Package,
+  Command,
+  Sparkles,
+} from "lucide-react";
 
-const FOLDER_ICONS = {
-  ml: "🧠",
-  MLDL: "📊",
-  LLM: "🤖",
-  clg: "🎓",
-  compt: "💻",
-  DL: "🔬",
-  cyber: "🛡️",
-  daa: "📐",
-  hpc: "⚡",
-  st: "🧪",
-  nvidia: "🎮",
-  answer: "📝",
-  answers: "📝",
-  software: "💿",
+const ICONS = {
+  ml: Brain,
+  LLM: Bot,
+  MLDL: BarChart3,
+  clg: GraduationCap,
+  compt: Cpu,
+  guide: Map,
+  DL: Layers,
+  cyber: Shield,
+  daa: Scale,
+  hpc: Zap,
+  st: FlaskConical,
+  nvidia: Cpu,
+  answer: FileCheck,
+  answers: FileCheck,
+  software: Package,
 };
 
 const FOLDER_LABELS = {
@@ -30,7 +55,7 @@ const FOLDER_LABELS = {
   DL: "Deep Learning",
   cyber: "Cyber Security",
   daa: "Design & Analysis of Algo",
-  hpc: "High Perf. Computing",
+  hpc: "High Performance Comp.",
   st: "Software Testing",
   nvidia: "NVIDIA",
   answer: "Answers",
@@ -40,14 +65,10 @@ const FOLDER_LABELS = {
 
 function prettifyName(name) {
   return FOLDER_LABELS[name] || name
-    .replace(/_/g, " ")
+    .replace(/[_-]+/g, " ")
     .replace(/\b\w/g, (c) => c.toUpperCase());
 }
 
-/**
- * Build a nested tree from flat doc paths.
- * Each node: { name, label, icon, children: [...nodes], files: [...{path, name}] }
- */
 function buildTree(docs) {
   const root = { children: {}, files: [] };
 
@@ -55,7 +76,6 @@ function buildTree(docs) {
     const parts = docPath.split("/");
     let node = root;
 
-    // Walk through folder segments
     for (let i = 0; i < parts.length - 1; i++) {
       const seg = parts[i];
       if (!node.children[seg]) {
@@ -64,7 +84,6 @@ function buildTree(docs) {
       node = node.children[seg];
     }
 
-    // Last segment is the file name
     const fileName = parts[parts.length - 1];
     node.files.push({
       path: docPath,
@@ -72,59 +91,56 @@ function buildTree(docs) {
     });
   });
 
-  // Convert children objects to sorted arrays recursively
   function toArray(node) {
     const childEntries = Object.entries(node.children)
       .sort(([a], [b]) => a.localeCompare(b))
       .map(([key, child]) => ({
         key,
         label: prettifyName(key),
-        icon: FOLDER_ICONS[key] || "📁",
+        icon: key,
         ...toArray(child),
       }));
 
     const sortedFiles = [...node.files].sort((a, b) => a.name.localeCompare(b.name));
-
     return { folders: childEntries, files: sortedFiles };
   }
 
   return toArray(root);
 }
 
-function FolderNode({ folder, pathname, depth, onLinkClick, expandedMap, toggleExpand }) {
-  const isExpanded = expandedMap[folder.key] !== false; // default open
-  const totalItems = folder.files.length + folder.folders.length;
+function FolderNode({ folder, pathname, depth, onLinkClick, isOpen, setIsOpen }) {
+  const Icon = ICONS[folder.key] || Folder;
+  const childrenCount = folder.folders.reduce((s, f) => s + f.files.length + f.folders.length, 0) + folder.files.length;
 
   return (
-    <div className="nav-folder" style={{ "--depth": depth }}>
+    <div className="nav-folder">
       <button
-        className={`nav-folder-header ${isExpanded ? "expanded" : ""}`}
-        onClick={() => toggleExpand(folder.key)}
-        style={{ paddingLeft: 12 + depth * 16 }}
+        className={`nav-folder-header ${isOpen ? "expanded" : ""}`}
+        onClick={() => setIsOpen(!isOpen)}
+        style={{ paddingLeft: 12 + depth * 14 }}
+        aria-expanded={isOpen}
       >
-        <span className="nav-folder-icon">{folder.icon}</span>
+        <span className="nav-folder-chevron">
+          <ChevronRight size={13} />
+        </span>
+        <span className="nav-folder-icon">
+          <Icon size={15} />
+        </span>
         <span className="nav-folder-label">{folder.label}</span>
-        <span className="nav-folder-count">{totalItems}</span>
-        <svg className={`chevron ${isExpanded ? "open" : ""}`} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-          <path fillRule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clipRule="evenodd" />
-        </svg>
+        <span className="nav-count">{childrenCount}</span>
       </button>
 
-      {isExpanded && (
+      {isOpen && (
         <div className="nav-folder-children">
-          {/* Sub-folders first */}
           {folder.folders.map((sub) => (
-            <FolderNode
+            <SidebarFolder
               key={sub.key}
               folder={sub}
               pathname={pathname}
               depth={depth + 1}
               onLinkClick={onLinkClick}
-              expandedMap={expandedMap}
-              toggleExpand={toggleExpand}
             />
           ))}
-          {/* Then files */}
           {folder.files.map((item) => {
             const href = `/docs/${encodeURI(item.path)}`;
             const isActive = pathname === href || decodeURIComponent(pathname) === href;
@@ -133,11 +149,11 @@ function FolderNode({ folder, pathname, depth, onLinkClick, expandedMap, toggleE
                 key={item.path}
                 href={href}
                 className={`nav-link ${isActive ? "active" : ""}`}
-                style={{ paddingLeft: 16 + (depth + 1) * 16 }}
+                style={{ paddingLeft: 22 + depth * 14 }}
                 onClick={onLinkClick}
               >
-                <span className="nav-link-dot" />
-                {item.name}
+                <FileText size={13} className="nav-link-icon" />
+                <span className="nav-link-text">{item.name}</span>
               </Link>
             );
           })}
@@ -147,18 +163,39 @@ function FolderNode({ folder, pathname, depth, onLinkClick, expandedMap, toggleE
   );
 }
 
+function SidebarFolder(props) {
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    const isAncestorActive =
+      props.pathname.includes(`/docs/${props.folder.key}/`) ||
+      props.folder.files.some(
+        (f) => props.pathname === `/docs/${encodeURI(f.path)}` || decodeURIComponent(props.pathname) === `/docs/${f.path}`
+      ) ||
+      props.folder.folders.some((sub) => props.pathname.includes(`/docs/${props.folder.key}/${sub.key}`));
+    if (isAncestorActive) setOpen(true);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [props.pathname]);
+
+  return <FolderNode {...props} isOpen={open} setIsOpen={setOpen} />;
+}
+
 export default function Sidebar({ docs, isOpen, onClose }) {
   const pathname = usePathname();
   const [searchQuery, setSearchQuery] = useState("");
-  const [expandedMap, setExpandedMap] = useState({});
+  const [topLevel, setTopLevel] = useState({});
+  const searchRef = useRef(null);
 
   const tree = useMemo(() => buildTree(docs), [docs]);
 
-  const toggleExpand = useCallback((key) => {
-    setExpandedMap((prev) => ({ ...prev, [key]: prev[key] === false ? true : false }));
-  }, []);
+  useEffect(() => {
+    const initial = {};
+    tree.folders.forEach((folder) => {
+      initial[folder.key] = true;
+    });
+    setTopLevel(initial);
+  }, [tree]);
 
-  // Filter: when searching, flatten to matching files grouped by top-level folder
   const filteredTree = useMemo(() => {
     if (!searchQuery.trim()) return tree;
     const q = searchQuery.toLowerCase();
@@ -171,7 +208,6 @@ export default function Sidebar({ docs, isOpen, onClose }) {
         .map((folder) => {
           const filtered = filterNode(folder);
           if (filtered) return { ...folder, ...filtered };
-          // Also match on folder label
           if (folder.label.toLowerCase().includes(q)) return folder;
           return null;
         })
@@ -185,55 +221,123 @@ export default function Sidebar({ docs, isOpen, onClose }) {
     return result || { folders: [], files: [] };
   }, [tree, searchQuery]);
 
+  const toggleTopLevel = useCallback((key) => {
+    setTopLevel((prev) => ({ ...prev, [key]: !prev[key] }));
+  }, []);
+
+  useEffect(() => {
+    const onKey = (e) => {
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
+        // handled by global palette; just close mobile drawer
+        if (window.innerWidth < 1024) onClose();
+      }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [onClose]);
+
   return (
     <>
-      <div className={`sidebar-overlay ${isOpen ? "open" : ""}`} onClick={onClose} />
+      <div
+        className={`sidebar-overlay ${isOpen ? "visible" : ""}`}
+        onClick={onClose}
+        aria-hidden="true"
+      />
       <aside className={`sidebar ${isOpen ? "open" : ""}`}>
         <div className="sidebar-header">
           <Link href="/" className="sidebar-logo" onClick={onClose}>
-            <div className="sidebar-logo-icon">L</div>
-            <div>
+            <div className="sidebar-logo-icon">
+              <BookOpen size={17} />
+            </div>
+            <div className="sidebar-logo-texts">
               <div className="sidebar-logo-text">LearnDocs</div>
               <div className="sidebar-logo-sub">Knowledge Base</div>
             </div>
           </Link>
+          <button className="sidebar-close" onClick={onClose} aria-label="Close menu">
+            <X size={16} />
+          </button>
         </div>
 
         <div className="sidebar-search">
           <div className="search-input-wrap">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-              <path fillRule="evenodd" d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z" clipRule="evenodd" />
-            </svg>
+            <Search size={15} className="search-input-icon" />
             <input
+              ref={searchRef}
               className="search-input"
               type="text"
-              placeholder="Search docs..."
+              placeholder="Filter docs…"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
+              autoComplete="off"
+              aria-label="Filter documentation"
             />
+            {searchQuery && (
+              <button className="search-clear" onClick={() => setSearchQuery("")} aria-label="Clear filter">
+                <X size={12} />
+              </button>
+            )}
           </div>
         </div>
 
-        <nav className="sidebar-nav">
+        <nav className="sidebar-nav" role="navigation" aria-label="Documentation navigation">
           {filteredTree.folders.length === 0 && filteredTree.files.length === 0 ? (
             <div className="no-results">
-              <div className="no-results-icon">🔍</div>
-              <div className="no-results-text">No docs found</div>
+              <Search size={20} className="no-results-icon" />
+              <p>
+                {searchQuery.trim() ? `No results for “${searchQuery}”` : "No docs found"}
+              </p>
             </div>
           ) : (
             <>
               {filteredTree.folders.map((folder) => (
-                <FolderNode
-                  key={folder.key}
-                  folder={folder}
-                  pathname={pathname}
-                  depth={0}
-                  onLinkClick={onClose}
-                  expandedMap={expandedMap}
-                  toggleExpand={toggleExpand}
-                />
+                <div key={folder.key} className="nav-folder">
+                  <button
+                    className={`nav-folder-header top ${topLevel[folder.key] ? "expanded" : ""}`}
+                    onClick={() => toggleTopLevel(folder.key)}
+                    aria-expanded={topLevel[folder.key]}
+                  >
+                    <span className="nav-folder-icon">
+                      {topLevel[folder.key] ? <FolderOpen size={15} /> : <Folder size={15} />}
+                    </span>
+                    <span className="nav-folder-label">{folder.label}</span>
+                    <span className="nav-count">
+                      {folder.files.length + folder.folders.length}
+                    </span>
+                  </button>
+
+                  {topLevel[folder.key] && (
+                    <div className="nav-folder-children">
+                      {folder.folders.map((sub) => (
+                        <SidebarFolder
+                          key={sub.key}
+                          folder={sub}
+                          pathname={pathname}
+                          depth={1}
+                          onLinkClick={onClose}
+                        />
+                      ))}
+                      {folder.files.map((item) => {
+                        const href = `/docs/${encodeURI(item.path)}`;
+                        const isActive = pathname === href || decodeURIComponent(pathname) === href;
+                        return (
+                          <Link
+                            key={item.path}
+                            href={href}
+                            className={`nav-link ${isActive ? "active" : ""}`}
+                            style={{ paddingLeft: 34 }}
+                            onClick={onClose}
+                          >
+                            <FileText size={13} className="nav-link-icon" />
+                            <span className="nav-link-text">{item.name}</span>
+                          </Link>
+                        );
+                      })}
+                    </div>
+                  )}
+                </div>
               ))}
-              {/* Root-level files */}
+
               {filteredTree.files.map((item) => {
                 const href = `/docs/${encodeURI(item.path)}`;
                 const isActive = pathname === href || decodeURIComponent(pathname) === href;
@@ -242,11 +346,11 @@ export default function Sidebar({ docs, isOpen, onClose }) {
                     key={item.path}
                     href={href}
                     className={`nav-link ${isActive ? "active" : ""}`}
-                    style={{ paddingLeft: 28 }}
+                    style={{ paddingLeft: 22 }}
                     onClick={onClose}
                   >
-                    <span className="nav-link-dot" />
-                    {item.name}
+                    <FileText size={13} className="nav-link-icon" />
+                    <span className="nav-link-text">{item.name}</span>
                   </Link>
                 );
               })}
@@ -255,9 +359,13 @@ export default function Sidebar({ docs, isOpen, onClose }) {
         </nav>
 
         <div className="sidebar-footer">
-          <div className="sidebar-footer-text">
-            {docs.length} documents available
-          </div>
+          <span className="sidebar-footer-text">
+            <Sparkles size={11} />
+            {docs.length} documents
+          </span>
+          <span className="sidebar-footer-kbd">
+            <Command size={11} />K to search
+          </span>
         </div>
       </aside>
     </>
