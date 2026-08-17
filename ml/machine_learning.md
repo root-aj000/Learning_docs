@@ -1206,7 +1206,7 @@ Most of the machine learning algorithms are heavily based on mathematics. The le
 
 $$f_{AN}(net-\theta)=\begin{cases}\gamma & if\:net-\theta \geq \epsilon\\net-\theta & if -\epsilon < net-\theta < \epsilon\end{cases}$$
 
-$$\displaystyle\\\max\limits_{\alpha}\begin{bmatrix}\displaystyle\sum\limits_{i=1}^m \alpha-\frac{1}{2}\displaystyle\sum\limits_{i,j=1}^m label^{(i)}\cdot\:label^{(j)}\cdot\:a_{i}\cdot\:a_{j}\langle x^{(i)},x^{(j)}\rangle \end{bmatrix}$$
+$\displaystyle\max\limits_{\alpha}\begin{bmatrix}\displaystyle\sum\limits_{i=1}^m \alpha-\frac{1}{2}\displaystyle\sum\limits_{i,j=1}^m label^{(i)}\cdot\:label^{(j)}\cdot\:a_{i}\cdot\:a_{j}\langle x^{(i)},x^{(j)}\rangle \end{bmatrix}$
 
 $$f_{AN}(net-\theta)=\left(\frac{e^{\lambda(net-\theta)}-e^{-\lambda(net-\theta)}}{e^{\lambda(net-\theta)}+e^{-\lambda(net-\theta)}}\right)\;$$
 
@@ -1226,7 +1226,7 @@ With these definitions, we can define s Bayesian classification rule −
 
 Here is an optimization function,
 
-$$\displaystyle\\\max\limits_{\alpha}\begin{bmatrix}\displaystyle\sum\limits_{i=1}^m \alpha-\frac{1}{2}\displaystyle\sum\limits_{i,j=1}^m label^{(i)}\cdot\:label^{(j)}\cdot\:a_{i}\cdot\:a_{j}\langle x^{(i)},x^{(j)}\rangle \end{bmatrix}$$
+$\displaystyle\max\limits_{\alpha}\begin{bmatrix}\displaystyle\sum\limits_{i=1}^m \alpha-\frac{1}{2}\displaystyle\sum\limits_{i,j=1}^m label^{(i)}\cdot\:label^{(j)}\cdot\:a_{i}\cdot\:a_{j}\langle x^{(i)},x^{(j)}\rangle \end{bmatrix}$
 
 Subject to the following constraints −
 

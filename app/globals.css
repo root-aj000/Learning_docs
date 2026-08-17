@@ -1734,8 +1734,6 @@ a { color: inherit; }
   tab-size: 2;
 }
 
-.code-block-body pre code span { color: var(--shiki-dark); }
-
 .code-block-body pre [data-line] { padding: 0 20px; }
 
 .code-block-body pre code ::selection {

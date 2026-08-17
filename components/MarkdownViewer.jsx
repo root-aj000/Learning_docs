@@ -6,6 +6,7 @@ import rehypeKatex from "rehype-katex";
 import rehypePrettyCode from "rehype-pretty-code";
 import { Link as LinkIcon, FileCode2, Terminal } from "lucide-react";
 import { slugify, normalizeHeadingText } from "../lib/slug";
+import { codeTheme } from "../lib/codeTheme";
 import MermaidBlock from "./MermaidBlock";
 import CopyButton from "./CopyButton";
 
@@ -21,7 +22,7 @@ function extractText(node) {
 }
 
 const prettyCodeOptions = {
-  theme: { light: "github-light", dark: "github-dark" },
+  theme: codeTheme,
   keepBackground: false,
   bypassInlineCode: true,
   defaultLang: "text",
@@ -63,7 +64,7 @@ function CodeBlock({ language, children }) {
         </span>
         <CopyButton code={codeText} label={language} />
       </div>
-      <div className="code-block-body">{body}</div>
+      <div className="code-block-body"><pre>{body}</pre></div>
     </div>
   );
 }
@@ -121,9 +122,10 @@ export default async function MarkdownViewer({ content, headings = [] }) {
 
       pre({ children }) {
         const child = Array.isArray(children) ? children[0] : children;
+        const dataLang = child?.props?.["data-language"];
         const className = child?.props?.className || "";
         const match = /language-(\w+)/.exec(className);
-        const lang = match?.[1];
+        const lang = dataLang || match?.[1];
 
         if (lang === "mermaid") {
           const text = child?.props?.children;
