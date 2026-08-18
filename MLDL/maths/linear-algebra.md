@@ -78,6 +78,8 @@ $$x + y = 3 \qquad x - y = 1$$
 
 ## 0.5 Notation table — every symbol used in this document
 
+**Essential now (Modules 1–2):**
+
 | Symbol | Name | Meaning | Example |
 | :--- | :--- | :--- | :--- |
 | $x$, $y$ (plain) | scalar | a single number | $x = 3$ |
@@ -87,17 +89,22 @@ $$x + y = 3 \qquad x - y = 1$$
 | $A_{ij}$ | entry | the number in row $i$, column $j$ | $A_{21} = 3$ above |
 | $A^T$ | transpose | rows ↔ columns swapped | $\begin{bmatrix}1&2\end{bmatrix}^T = \begin{bmatrix}1\\2\end{bmatrix}$ |
 | $\|\mathbf{x}\|_2$ | L2 norm | length of the vector | $\|[3,4]\|_2 = 5$ |
-| $\|\mathbf{x}\|_1$ | L1 norm | sum of absolute values | $\|[3,-4]\|_1 = 7$ |
 | $\mathbf{a} \cdot \mathbf{b}$ | dot product | weighted-sum alignment | $[1,2]\cdot[3,4] = 11$ |
-| $\mathbf{a} \times \mathbf{b}$ | cross product | perpendicular vector (3D) / area (2D) | — |
-| $\det(A)$ | determinant | area/volume scaling factor | $\det\begin{bmatrix}1&2\\3&4\end{bmatrix} = -2$ |
-| $A^{-1}$ | inverse | the matrix that undoes $A$ | $A A^{-1} = I$ |
-| $I$ | identity matrix | matrix version of the number 1 | $I = \begin{bmatrix}1&0\\0&1\end{bmatrix}$ |
-| $\text{rank}(A)$ | rank | number of independent directions | — |
-| $\lambda$ | lambda | eigenvalue (stretch factor) | $A\mathbf{v} = \lambda\mathbf{v}$ |
-| $\Sigma$ | capital sigma | diagonal matrix of singular values | $A = U\Sigma V^T$ |
-| span | span | all reachable combinations | span$\{\mathbf{v}_1, \mathbf{v}_2\}$ |
-| $\perp$ | perpendicular | at right angles | $\mathbf{a} \perp \mathbf{b}$ means $\mathbf{a}\cdot\mathbf{b}=0$ |
+
+**Reference later (Modules 3–5):**
+
+| Symbol | Name | Meaning | First appears |
+| :--- | :--- | :--- | :--- |
+| $\|\mathbf{x}\|_1$ | L1 norm | sum of absolute values | Module 1.4 |
+| $\mathbf{a} \times \mathbf{b}$ | cross product | perpendicular vector (3D) / area (2D) | Module 1.3b |
+| $\det(A)$ | determinant | area/volume scaling factor | Module 2.5 |
+| $A^{-1}$ | inverse | the matrix that undoes $A$ | Module 2.5 |
+| $I$ | identity matrix | matrix version of the number 1 | Module 2.4 |
+| $\text{rank}(A)$ | rank | number of independent directions | Module 2.6 |
+| $\lambda$ | lambda | eigenvalue (stretch factor) | Module 4.1 |
+| $\Sigma$ | capital sigma | diagonal matrix of singular values | Module 4.2 |
+| span | span | all reachable combinations | Module 3.1 |
+| $\perp$ | perpendicular | at right angles | Module 1.5 |
 
 ---
 
@@ -163,6 +170,8 @@ This is just Pythagoras extended to n dimensions. For $\mathbf{x} = (3, 2)$: $\|
 
 **Worked example — turn real data into a vector:** a student's features: hours studied = 4, attendance = 90%, previous score = 72. Vector: $\mathbf{x} = [4, 90, 72]$. This single list is exactly what an ML model receives as input.
 
+> **TL;DR:** A scalar is one number. A vector is an ordered list of numbers = a point/arrow in space. ML uses vectors for everything (data samples, weights, gradients).
+
 ### Where, why, how in ML
 
 - **Where:** every dataset row, every image, every word embedding, every neural network layer.
@@ -191,6 +200,8 @@ $$\mathbf{a} + \mathbf{b} = \begin{bmatrix} a_1 + b_1 \\ a_2 + b_2 \end{bmatrix}
 **Scalar multiplication:** multiply every component by the same number:
 
 $$c \cdot \mathbf{v} = \begin{bmatrix} c \cdot v_1 \\ c \cdot v_2 \end{bmatrix}$$
+
+> **TL;DR:** Vector addition = combine two arrows tip-to-tail. Scalar multiplication = stretch/shrink an arrow (flip if negative). Gradient descent = scale gradient by learning rate, then add to weights.
 
 ### Worked example (every number shown)
 
@@ -244,6 +255,8 @@ where $\theta$ is the angle between the vectors. Since $\|\mathbf{a}\|$ and $\|\
 
 ![Dot product geometry: angle and projection](/maths-images/linalg-dot-product.png)
 
+> **TL;DR:** Dot product = weighted sum of matching components = similarity score. Zero = perpendicular. Positive = pointing same way. A neuron IS a dot product + bias.
+
 ### Worked examples (full arithmetic)
 
 **Example 1 — compute:** $\mathbf{a} = [2, 3]$, $\mathbf{b} = [5, 10]$.
@@ -284,6 +297,23 @@ $$\mathbf{a} \times \mathbf{b} = \begin{bmatrix} a_2 b_3 - a_3 b_2 \\ a_3 b_1 - 
 **The geometric meaning:**
 - The result points **perpendicular** to the plane spanned by $\mathbf{a}$ and $\mathbf{b}$ (direction by the right-hand rule).
 - The result's **length equals the area of the parallelogram** formed by $\mathbf{a}$ and $\mathbf{b}$: $\|\mathbf{a} \times \mathbf{b}\| = \|\mathbf{a}\|\,\|\mathbf{b}\| \sin\theta$.
+
+> **TL;DR:** Cross product (3D only) = vector perpendicular to both inputs. Length = parallelogram area. Right-hand rule: index=a, middle=b, thumb=a×b. Rare in ML (used for 3D normals).
+
+**Right-Hand Rule Visual:**
+```
+       a × b  (result points here)
+            ▲
+            │
+            │
+            │
+    b ──────┼──────▶
+            │
+            │
+            ▼
+           a
+```
+Point fingers along **a**, curl toward **b**, thumb points to **a × b**.
 
 ### Worked example (full arithmetic)
 
@@ -327,6 +357,8 @@ $$\|\mathbf{x}\|_2 = \sqrt{x_1^2 + x_2^2 + \cdots + x_n^2}$$
 **L1 norm (Manhattan length) — the "city-block" measure:**
 
 $$\|\mathbf{x}\|_1 = |x_1| + |x_2| + \cdots + |x_n|$$
+
+> **TL;DR:** L2 = straight-line distance (circle unit ball). L1 = city-block distance (diamond unit ball). L1 forces sparsity (Lasso); L2 shrinks smoothly (Ridge).
 
 ### Worked example (every number shown)
 
@@ -385,6 +417,8 @@ $$\cos(\theta) = \frac{\mathbf{a} \cdot \mathbf{b}}{\|\mathbf{a}\|_2 \|\mathbf{b
 **Range of cosine similarity:** $+1$ = same direction, $0$ = perpendicular (unrelated), $-1$ = opposite.
 
 ![Cosine similarity: aligned, orthogonal, opposite](/maths-images/linalg-cosine-similarity.png)
+
+> **TL;DR:** Euclidean distance cares about magnitude AND direction. Cosine similarity ONLY cares about direction (angle). For text embeddings: cosine = meaning similarity, distance = length difference.
 
 ### Worked example (full arithmetic)
 
@@ -593,6 +627,10 @@ $$I_2 = \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix}, \qquad I_3 = \begin{bmatri
 - $\det = 0$ → the transformation *squashes* space into a lower dimension (area becomes 0) → the matrix is **singular** (no inverse exists).
 - $\det < 0$ → the transformation also *flips* orientation (mirror).
 
+**Why is the formula $ad - bc$?** For a $2 \times 2$ matrix, the columns are vectors $\begin{bmatrix}a\\c\end{bmatrix}$ and $\begin{bmatrix}b\\d\end{bmatrix}$. The parallelogram they form has area $|ad - bc|$. The sign tells you if the orientation flipped.
+
+> **TL;DR:** Determinant = area scaling factor. $\det = ad - bc$ IS the (signed) area of the parallelogram formed by the two column vectors. $\det = 0$ = squashed flat = no inverse.
+
 **Formula for a $2 \times 2$ matrix (memorize):**
 
 $$\det\begin{bmatrix} a & b \\ c & d \end{bmatrix} = ad - bc$$
@@ -600,6 +638,14 @@ $$\det\begin{bmatrix} a & b \\ c & d \end{bmatrix} = ad - bc$$
 **Worked example:** $\det\begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix} = 1(4) - 2(3) = 4 - 6 = -2$. (Area doubled *and* orientation flipped — hence the minus.)
 
 ![Determinant = area scaling; det = 0 squashes to a line](/maths-images/linalg-det-area.png)
+
+**Visual: Why $ad - bc$ is the Area**
+```
+Column 1 = [a, c] = (a, c)
+Column 2 = [b, d] = (b, d)
+Parallelogram corners: (0,0), (a,c), (b,d), (a+b, c+d)
+Area = |a*d - b*c|  ← the determinant!
+```
 
 **Inverse ($A^{-1}$):** the matrix that *undoes* $A$. By definition:
 
@@ -610,6 +656,8 @@ $$A \cdot A^{-1} = I \quad \text{and} \quad A^{-1} \cdot A = I$$
 $$A^{-1} = \frac{1}{ad - bc} \begin{bmatrix} d & -b \\ -c & a \end{bmatrix}$$
 
 Notice: the denominator $ad - bc$ **is** the determinant. If $\det = 0$, division is impossible → **no inverse exists** (the transformation squashed space, so it cannot be undone).
+
+> **TL;DR:** Inverse = the "undo" matrix. $A^{-1}$ exists ⟺ $\det \neq 0$. Formula: swap diagonal, negate off-diagonal, divide by determinant.
 
 **Worked example — compute and verify:**
 
@@ -675,7 +723,7 @@ Row 2 is exactly $2 \times$ row 1: $(2, 4) = 2(1, 2)$. The second row adds **zer
 
 - **Where:** LoRA (low-rank adaptation of LLMs), matrix completion, PCA/SVD (Module 4), detecting redundant features (multicollinearity).
 - **Why:** rank tells us how much *storage and computation* a matrix truly needs. A $1000 \times 1000$ matrix of rank 10 contains the same information as 10 vectors.
-- **How — LoRA:** fine-tuning an LLM updates a huge weight matrix $W$ (billions of entries). Instead, LoRA writes the update as $W + BA$ where $B$ and $A$ are *tiny* low-rank matrices (e.g. rank 8). Result: 99% less memory, because the update's true rank is tiny.
+- **How — LoRA (concrete numbers):** fine-tuning an LLM updates a huge weight matrix $W$ (e.g., $4096 \times 4096 = 16.7$M parameters). Instead, LoRA writes the update as $W + BA$ where $B$ is $4096 \times 8$ and $A$ is $8 \times 4096$ (rank 8). Total new params: $4096 \times 8 + 8 \times 4096 = 65,536$ — **99.6% fewer parameters** (65K vs 16.7M). The update's true rank is tiny, so we only learn the low-rank part.
 
 ### How rank differs from determinant
 
@@ -864,6 +912,14 @@ $$A\mathbf{v} = \lambda \mathbf{v}$$
 
 **Real-world analogy:** stretch a rubber sheet diagonally. Most points move off their original lines, but points *along the stretch direction* stay on their line — they're just pulled. Those fixed directions are the eigenvectors.
 
+> **TL;DR:** Eigenvector = direction that doesn't rotate (only stretches). Eigenvalue = the stretch factor. $A\mathbf{v} = \lambda \mathbf{v}$ means "matrix times vector = scalar times same vector."
+
+**Why $\det(A - \lambda I) = 0$?** We want $A\mathbf{v} = \lambda \mathbf{v}$.
+Rearrange: $A\mathbf{v} - \lambda \mathbf{v} = 0$ → $(A - \lambda I)\mathbf{v} = 0$.
+For a non-zero $\mathbf{v}$, the matrix $(A - \lambda I)$ MUST squash space (send some non-zero vector to zero).
+A matrix squashes space ⟺ its determinant is zero.
+Therefore: $\det(A - \lambda I) = 0$. **This is the characteristic equation — it finds the $\lambda$ values that make $A - \lambda I$ singular.**
+
 ### Worked example — find them step by step
 
 $$A = \begin{bmatrix} 2 & 1 \\ 1 & 2 \end{bmatrix}$$
@@ -965,6 +1021,8 @@ $$(PD)P^{-1} = \begin{bmatrix} 3 & 1 \\ 3 & -1 \end{bmatrix} \begin{bmatrix} 0.5
 
 **The one-sentence recipe:** *compute the covariance matrix of the data; its eigenvectors (ordered by eigenvalue size) are the principal components; the largest eigenvalue's direction carries the most information.*
 
+> **TL;DR:** PCA = find directions of maximum variance (eigenvectors of covariance). Project data onto top-k directions to reduce dimensions. Keeps 99% variance with ~10% of features.
+
 ### Worked example — tiny 2D dataset
 
 Data points (2 features): $(1, 1)$, $(2, 1)$, $(3, 3)$, $(4, 4)$, $(5, 6)$.
@@ -998,6 +1056,15 @@ $$C = \begin{bmatrix} 2 & 2.6 \\ 2.6 & 3.6 \end{bmatrix}$$
 - **SVD** is a *matrix factorization* method: works on any matrix directly.
 - **They connect:** PCA *is* SVD applied to the centered data matrix — the PCA components are the SVD's right singular vectors. Same math, two names, two stories.
 
+> **WHICH ONE DO I USE? (Decision Box)**
+> ```
+> Is your matrix rectangular (not square)?
+>   YES → SVD (PCA needs square covariance matrix)
+>   NO (square) → Is it a covariance matrix (symmetric, positive semi-definite)?
+>     YES → PCA (eigenvectors = principal components, directly interpretable)
+>     NO → SVD (works on any square matrix; eigendecomp may fail if not diagonalizable)
+> ```
+
 ---
 
 ## 4.4 Singular Value Decomposition (SVD) — the Swiss-army knife of matrices
@@ -1015,6 +1082,8 @@ $$A = U \Sigma V^T$$
 **The geometric story (one picture, three steps):** multiplying by $A$ = *rotate* (by $V^T$), then *stretch along the axes* (by $\Sigma$), then *rotate again* (by $U$).
 
 ![SVD: unit circle → rotate → scale → rotate = ellipse](/maths-images/linalg-svd.png)
+
+> **TL;DR:** SVD = any matrix = Rotation × Stretch × Rotation. Works on rectangular matrices (unlike eigendecomp). Singular values = stretch factors. Used for PCA, recommender systems, compression.
 
 ### Worked example — 2×2, fully computed
 

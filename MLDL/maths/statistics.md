@@ -86,6 +86,8 @@ $$\bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i$$
 
 ## 0.5 Notation table — every symbol used in this document
 
+**Essential now (Modules 1–2):**
+
 | Symbol | Name | Meaning |
 | :--- | :--- | :--- |
 | $x_i$ | observation i | the i-th data point |
@@ -98,15 +100,20 @@ $$\bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i$$
 | $IQR$ | interquartile range | $Q_3 - Q_1$ (robust spread) |
 | $z$ | z-score | standardized value (units: std devs) |
 | $r$ | Pearson correlation | strength of linear relationship, $[-1, 1]$ |
-| $\hat{p}$ | sample proportion | estimated success rate |
-| $SE$ | standard error | std dev of a statistic (e.g. of the mean) |
-| $CI$ | confidence interval | range that plausibly holds $\mu$ |
-| $H_0$, $H_1$ | null / alternative hypothesis | claim vs. its rival |
-| $\alpha$ | significance level | risk of false positive (usually 0.05) |
-| $p$ | p-value | probability of data this extreme if $H_0$ true |
-| $\mathcal{L}(\theta)$ | likelihood | probability of data given parameter $\theta$ |
-| $\hat{\theta}_{MLE}$ | MLE estimate | parameter making data most likely |
-| $D_{KL}$ | KL divergence | how far two distributions are apart (see Probability doc) |
+
+**Reference later (Modules 3–5):**
+
+| Symbol | Name | Meaning | First appears |
+| :--- | :--- | :--- | :--- |
+| $\hat{p}$ | sample proportion | estimated success rate | Module 2.3 |
+| $SE$ | standard error | std dev of a statistic (e.g. of the mean) | Module 3.2 |
+| $CI$ | confidence interval | range that plausibly holds $\mu$ | Module 4.1 |
+| $H_0$, $H_1$ | null / alternative hypothesis | claim vs. its rival | Module 4.2 |
+| $\alpha$ | significance level | risk of false positive (usually 0.05) | Module 4.2 |
+| $p$ | p-value | probability of data this extreme if $H_0$ true | Module 4.2 |
+| $\mathcal{L}(\theta)$ | likelihood | probability of data given parameter $\theta$ | Module 5.1 |
+| $\hat{\theta}_{MLE}$ | MLE estimate | parameter making data most likely | Module 5.1 |
+| $D_{KL}$ | KL divergence | how far two distributions are apart (see Probability doc) | Module 5.2 |
 
 ---
 
@@ -157,6 +164,8 @@ Three different answers to "where is the middle of this data?":
 - **Median**: the middle value after sorting — the 50% mark.
 - **Mode**: the most frequent value — the most common occurrence.
 
+> **TL;DR:** Mean = average (sensitive to outliers). Median = middle after sorting (robust). Mode = most frequent. Right-skewed → mean > median. Left-skewed → mean < median.
+
 ### Worked examples (full arithmetic)
 
 **Dataset A (symmetric):** spends $= 60, 70, 80, 90, 100$.
@@ -203,6 +212,8 @@ $$s^2 = \frac{1}{n - 1}\sum_{i=1}^{n} (x_i - \bar{x})^2$$
 **Sample standard deviation:** $s = \sqrt{s^2}$ — same spread, but in the *original units* (dollars, not dollars-squared).
 
 **The mystery of $n - 1$ (WHY, not just what):** we use the sample mean $\bar{x}$ (not the true $\mu$) to measure deviations, and $\bar{x}$ is itself computed *from the data* — it's always slightly closer to the data than the true mean is. This makes raw squared deviations *systematically too small*. Dividing by $n - 1$ (instead of $n$) compensates for that bias. The result: $s^2$ is an **unbiased estimate** of $\sigma^2$. This correction is called **Bessel's correction**. (For small $n$ it matters a lot: dividing by 5 vs 4 is a 25% difference; for $n = 10{,}000$ it's a rounding error.)
+
+> **TL;DR:** Variance = average squared distance from mean. $n-1$ (not $n$) = Bessel's correction for unbiased estimate. Std dev = $\sqrt{\text{variance}}$ (back to original units).
 
 ### Worked example (full arithmetic)
 
@@ -526,9 +537,27 @@ $$ \bar{x} \approx \mathcal{N}\left(\mu, \frac{\sigma^2}{n}\right) \quad \text{f
 
 ![CLT: skewed population → sample means become Gaussian](/maths-images/stat-clt.png)
 
-### Worked example (simulation logic)
+> **TL;DR:** CLT = sample means become Gaussian no matter the population shape (n ≥ 30). This is why Gaussian tools work everywhere — averages are normal even when data isn't.
 
-Draw the mean of 5 uniform dice-roll sums... better: take 100 samples of $n = 30$ each from a strongly right-skewed population. Plot the 100 means as a histogram → it looks like a bell, centered at the population mean, spread $= \sigma/\sqrt{30}$.
+### Real Worked Example (with actual numbers)
+
+**Population:** a fair die (values 1,2,3,4,5,6). Population mean $\mu = 3.5$, std $\sigma \approx 1.71$. This is **uniform** (not Gaussian!).
+
+Take **4 samples of size $n=5$** each, compute their means:
+
+| Sample | 5 rolls | Mean |
+| :--- | :--- | :--- |
+| 1 | 3, 6, 2, 5, 1 | 3.4 |
+| 2 | 4, 4, 3, 2, 6 | 3.8 |
+| 3 | 1, 5, 2, 3, 4 | 3.0 |
+| 4 | 6, 1, 5, 2, 3 | 3.4 |
+
+**Mean of means** = $(3.4 + 3.8 + 3.0 + 3.4) / 4 = 3.4$ ≈ population mean 3.5 ✓
+**Spread of means (SE)** ≈ 0.3 (tiny compared to population spread 1.71)
+
+Now take 100 samples of $n=30$ → the 100 means form a **bell-shaped histogram** centered at 3.5, spread = $1.71/\sqrt{30} \approx 0.31$.
+
+![CLT: skewed population → sample means become Gaussian](/maths-images/stat-clt.png)
 
 ### Where, why, how in ML
 
@@ -591,6 +620,8 @@ Measure 100 customers' spends: $\bar{x} = 80$, $s = 20$.
 - $p < \alpha$ → "statistically significant" → reject $H_0$ (accept the effect).
 - $p \ge \alpha$ → fail to reject $H_0$ (not enough evidence).
 
+> **TL;DR:** p-value = probability of seeing data this extreme IF $H_0$ is true. $p < 0.05$ → reject $H_0$ (effect is real). $p \ge 0.05$ → not enough evidence. Never "prove $H_0$" — absence of evidence ≠ evidence of absence.
+
 ### Worked example (full arithmetic)
 
 A coin is claimed fair ($H_0$: $p = 0.5$). You flip it 20 times and get 16 heads. Is that suspicious?
@@ -606,6 +637,12 @@ $$P(X = 20) = 1 \times 0.000000954 = 0.000001$$
 
 **Step 3 — sum the extreme tail (two-sided):**
 $$p \approx 2 \times (0.0046 + 0.0011 + 0.00018 + 0.000019 + 0.000001) = 2 \times 0.0059 \approx 0.0118$$
+
+> **Why Multiply by 2? (Two-sided test)**
+> - Observed: 16 heads (extreme HIGH). 
+> - Two-sided = "16+ heads OR 4- heads (equally extreme LOW)".
+> - $P(16+) = 0.0059$, $P(4-) = 0.0059$ (symmetric under $H_0$).
+> - Total = $2 \times 0.0059 = 0.0118$.
 
 **Step 4 — decide:** $p = 0.0118 < 0.05$ → **reject $H_0$**. 16 heads in 20 flips is real evidence the coin is biased — such a result would happen by chance only ~1.2% of the time with a fair coin.
 
@@ -707,7 +744,7 @@ $$-\sum_i \log p_\theta(y_i \mid x_i)$$
 
 $$\log \mathcal{L} = \sum_i \left[ -\frac{1}{2}\log(2\pi\sigma^2) - \frac{(y_i - f_\theta(x_i))^2}{2\sigma^2} \right]$$
 
-Maximizing this (for fixed $\sigma$) = minimizing $\sum_i (y_i - f_\theta(x_i))^2$ — **mean squared error**. The Gaussian assumption *derives* MSE. (If you instead assume Laplace-distributed residuals, you get MAE / L1 loss — the choice of loss is a choice of noise model!)
+> **Constants don't matter for optimization:** the term $-\frac{1}{2}\log(2\pi\sigma^2)$ is constant w.r.t. the model parameters $\theta$. **Constants don't affect the argmax**. This is why maximizing the log-likelihood = minimizing $\sum_i (y_i - f_\theta(x_i))^2$ = MSE. The Gaussian assumption *derives* MSE. (If you instead assume Laplace-distributed residuals, you get MAE / L1 loss — the choice of loss is a choice of noise model!)
 
 **Summary table:**
 
@@ -744,6 +781,13 @@ Same data: 7 heads in 10 flips. Before seeing data, you believe coins are usuall
 $$\text{posterior} = \text{Beta}(7 + 2, 3 + 2) = \text{Beta}(9, 5)$$
 
 **MAP estimate (mode of the posterior):** $\frac{\alpha - 1}{\alpha + \beta - 2} = \frac{9 - 1}{9 + 5 - 2} = \frac{8}{12} \approx 0.667$.
+
+> **Where does the Beta mode formula come from?**
+> Beta($\alpha, \beta$) PDF: $f(p) \propto p^{\alpha-1}(1-p)^{\beta-1}$.
+> Take log: $\log f = (\alpha-1)\log p + (\beta-1)\log(1-p) + \text{const}$.
+> Derivative: $\frac{d}{dp} = \frac{\alpha-1}{p} - \frac{\beta-1}{1-p} = 0$.
+> Solve: $(\alpha-1)(1-p) = (\beta-1)p$ → $\alpha - 1 = p(\alpha + \beta - 2)$ → $p = \frac{\alpha-1}{\alpha+\beta-2}$.
+> For $\alpha=9, \beta=5$: $\frac{8}{12} \approx 0.667$. ✓
 
 **Compare:**
 - MLE: $\hat{p} = 0.700$ (data alone).
@@ -784,6 +828,27 @@ The **bootstrap** estimates the sampling distribution of *any* statistic (mean, 
 5. The B stored values form an empirical sampling distribution → use its percentiles as a confidence interval.
 
 **Why "with replacement"?** Without replacement you'd just get the original sample back. Replacement is what makes each resample a fresh "imitation experiment."
+
+> **Bootstrap Pseudocode (runnable Python):**
+> ```python
+> import numpy as np
+> 
+> def bootstrap_ci(data, statistic, B=10000, alpha=0.05):
+>     """Return (lower, upper) bootstrap percentile CI."""
+>     stats = []
+>     n = len(data)
+>     for _ in range(B):
+>         resample = np.random.choice(data, size=n, replace=True)
+>         stats.append(statistic(resample))
+>     lower = np.percentile(stats, 100 * alpha / 2)
+>     upper = np.percentile(stats, 100 * (1 - alpha / 2))
+>     return lower, upper
+> 
+> # Example:
+> data = np.array([60, 70, 80, 90, 100])
+> ci = bootstrap_ci(data, np.mean)
+> print(f"95% CI for mean: {ci}")  # e.g. (70.4, 90.6)
+> ```
 
 ### Worked example (full arithmetic)
 

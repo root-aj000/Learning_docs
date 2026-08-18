@@ -77,30 +77,36 @@ Read: *"sum from i equals 1 to n of x sub i"* = add up all the $x_i$'s.
 
 ## 0.5 Notation table — every symbol used in this document
 
+**Essential now (Modules 1–2):**
+
 | Symbol | Name | Meaning | Example |
 | :--- | :--- | :--- | :--- |
 | $\Omega$ | sample space | all possible outcomes | $\{1,2,3,4,5,6\}$ for a die |
 | $\omega$ | outcome | one specific result | rolling a 4 |
 | $A$, $B$ | events | subsets of outcomes you care about | "even number" = $\{2,4,6\}$ |
 | $P(A)$ | probability of A | chance A happens | $P(\text{even}) = 0.5$ |
-| $P(A \cup B)$ | union | A or B (or both) | — |
-| $P(A \cap B)$ | intersection | A and B | — |
-| $P(A^c)$ | complement | not A | $P(A^c) = 1 - P(A)$ |
 | $P(A \mid B)$ | conditional | A given B happened | $P(\text{rain} \mid \text{clouds})$ |
 | $X$ | random variable | outcome mapped to a number | $X$ = number of heads |
-| $X \sim \text{Bernoulli}(p)$ | distributed as | X follows this distribution | — |
 | $P(X = x)$ | PMF | exact probability (discrete) | $P(X=2) = 0.25$ |
 | $f(x)$ | PDF | density (continuous) | — |
 | $F(x)$ | CDF | $P(X \le x)$ | — |
-| $E[X]$ | expectation | average value | $E[\text{die}] = 3.5$ |
-| $\text{Var}(X)$ | variance | spread around the mean | $\text{Var}(\text{die}) \approx 2.92$ |
-| $\sigma$ | std dev | $\sqrt{\text{Var}}$ | $\sigma \approx 1.71$ |
-| $\text{Cov}(X,Y)$ | covariance | how X and Y move together | — |
-| $\mu$, $\sigma^2$ | mean, variance | parameters of a Gaussian | $\mathcal{N}(0, 1)$ |
-| $\lambda$ | lambda | rate parameter | Poisson($\lambda$), Exponential($\lambda$) |
-| $H(P)$ | entropy | uncertainty in bits | $H(\text{fair coin}) = 1$ bit |
-| $D_{KL}$ | KL divergence | information lost using Q for P | — |
-| $\log$ / $\ln$ | logarithms | see Calculus doc prerequisites | $\log_2(8) = 3$ |
+
+**Reference later (Modules 3–5):**
+
+| Symbol | Name | Meaning | First appears |
+| :--- | :--- | :--- | :--- |
+| $P(A \cup B)$ | union | A or B (or both) | Module 1.2 |
+| $P(A \cap B)$ | intersection | A and B | Module 1.2 |
+| $P(A^c)$ | complement | not A | Module 1.2 |
+| $E[X]$ | expectation | average value | Module 2.4 |
+| $\text{Var}(X)$ | variance | spread around the mean | Module 2.4 |
+| $\sigma$ | std dev | $\sqrt{\text{Var}}$ | Module 2.4 |
+| $\text{Cov}(X,Y)$ | covariance | how X and Y move together | Module 2.4 |
+| $\mu$, $\sigma^2$ | mean, variance | parameters of a Gaussian | Module 4.7 |
+| $\lambda$ | lambda | rate parameter | Module 4.4, 4.5 |
+| $H(P)$ | entropy | uncertainty in bits | Module 5.2 |
+| $D_{KL}$ | KL divergence | information lost using Q for P | Module 5.2 |
+| $\log$ / $\ln$ | logarithms | see Calculus doc prerequisites | Module 5.2 |
 
 ---
 
@@ -325,6 +331,18 @@ $$F(x) = P(X \le x)$$
 - Always: $F(-\infty) = 0$, $F(+\infty) = 1$, and $F$ never decreases.
 
 ![PMF, PDF, CDF side by side for discrete and continuous variables](/maths-images/prob-pmf-pdf-cdf.png)
+
+> **TL;DR:** PMF = bar heights = exact probabilities (discrete). PDF = curve height = density, NOT probability (continuous). CDF = area up to x = cumulative probability. **For continuous: P(exact value) = 0, only ranges have probability.**
+
+**The Dartboard Analogy (why area = probability for continuous):**
+```
+Discrete: throw dart at numbered bins (1, 2, 3...)
+          probability = hits on bin / total throws
+Continuous: throw dart at a NUMBER LINE
+            chance of hitting EXACTLY 2.00000... = 0 (line has no width)
+            probability = area of region / total area
+            The PDF's height = "how crowded is this region"
+```
 
 ### Worked examples (full arithmetic)
 
@@ -584,7 +602,13 @@ $$P(\text{disease} \mid \text{positive}) = \frac{0.009}{0.0585} \approx 0.154 = 
 
 **The famous insight:** even with a 90%-accurate test, a positive result means only ~15% chance of disease — because the disease is rare (1%), so most positives come from the 5% false-positive rate among the 99% healthy people. **The prior matters enormously.** This is why doctors don't order rare-disease tests without symptoms.
 
-**Alternative intuition — count 10,000 people:** 100 are sick (99 of them test positive), 9,900 are healthy (5% = 495 false positives). Positive results total 99 + 495 = 594, of which 99 are truly sick: $\frac{99}{594} \approx 0.167$. (Slight difference because 0.01 × 0.90 = 0.009 ≠ 0.0099 — the tree version is exact.)
+**Alternative intuition — count 10,000 people (exactly matches the formula):**
+- 100 are sick (1% of 10,000). 90% test positive → **90 true positives**.
+- 9,900 are healthy (99% of 10,000). 5% false positive → **495 false positives**.
+- Total positive results = 90 + 495 = 585.
+- $P(\text{disease} \mid \text{positive}) = \frac{90}{585} \approx 0.154 = 15.4\%$ ✓
+
+*Both the formula and the counting method now give exactly 15.4% — no discrepancy!*
 
 ### Where, why, how in ML
 
@@ -847,6 +871,16 @@ $$H(P, Q) = H(P) + D_{KL}(P \parallel Q)$$
 
 *Cross-entropy = intrinsic entropy of truth + the extra cost of the model's mistake. Minimizing cross-entropy = minimizing KL divergence (the $H(P)$ part is fixed).*
 
+> **TL;DR:** Entropy = uncertainty (bits). Cross-entropy = cost of wrong model (classification loss). KL = extra cost vs truth (VAE loss). **Golden rule:** $H(P,Q) = H(P) + D_{KL}(P||Q)$ — minimizing cross-entropy = minimizing KL.
+
+> **Why log₂ here, ln in PyTorch?**
+> | Base | Unit | Use case | Conversion |
+> | :--- | :--- | :--- | :--- |
+> | $\log_2$ | **bits** | human-readable "questions to identify outcome" | 1 bit = ln(2) nats |
+> | $\ln$ (base $e$) | **nats** | math-friendly, derivatives are cleaner | 1 nat = log₂(e) bits |
+> 
+> In formulas: use $\log_2$ for human intuition (bits). In code (PyTorch/TensorFlow): `F.cross_entropy` uses natural log → outputs in **nats**. To convert: divide nats by $\ln(2) \approx 0.693$ to get bits.
+
 ### Worked examples (full arithmetic)
 
 **Example 1 — entropy of a fair coin:** $P = (0.5, 0.5)$:
@@ -966,6 +1000,12 @@ $$Q^* = \arg\min_Q D_{KL}(Q(z \mid x) \parallel P(z \mid x))$$
                         └──┘ KL loss pulls Q toward N(0,1)
    Generation:  z ~ N(0,1) ──▶ DECODER ──▶ brand-new image
 ```
+
+> **Why KL pulls Q toward N(0,1) (the mechanics):**
+> $$D_{KL}(Q \parallel \mathcal{N}(0,1)) = \mathbb{E}_Q[\log Q(z) - \log \mathcal{N}(0,1)(z)]$$
+> $$= \underbrace{-\mathcal{H}(Q)}_{\text{entropy (wants Q spread out)}} + \underbrace{\tfrac{1}{2}\mathbb{E}_Q[z^2]}_{\text{2nd moment (wants Q near 0)}} + \text{const}$$
+> Minimizing this makes Q have **high entropy** (spread out) + **small 2nd moment** (concentrated near 0).
+> The only distribution that does both: $\mathcal{N}(0,1)$. ✓
 
 **Diffusion models** do the same dance in reverse: their reverse process uses Bayes' theorem step by step, and each step is a Gaussian whose parameters the network predicts (see Calculus doc, Module 5.3 for the noise picture).
 

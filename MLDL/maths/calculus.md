@@ -124,7 +124,7 @@ Read as: *"log base b of a equals the exponent c that turns b into a."*
 
 **The two rules you must know:**
 
-1. $\ln(a \cdot b) = \ln(a) + \ln(b)$ — *log of a product = sum of logs.* (This is why logs turn multiplication into addition, which is why MLE turns products of probabilities into sums — see the Statistics document.)
+1. $\ln(a \cdot b) = \ln(a) + \ln(b)$ — *log of a product = sum of logs.* (This is why logs turn multiplication into addition, which is why MLE turns products of probabilities into sums — **see Statistics doc, Module 5.1: MLE replaces products with sums via log**.)
 2. $\ln(a^b) = b \cdot \ln(a)$ — *exponents come out front.*
 
 **Worked example:** simplify $\ln(x^2 \cdot y^3)$:
@@ -137,23 +137,30 @@ Read as: *"log base b of a equals the exponent c that turns b into a."*
 
 ## 0.6 Notation table — every symbol used in this document
 
+**Essential now (you'll see these in the next 3 sections):**
+
 | Symbol | Name | Meaning | Example |
 | :--- | :--- | :--- | :--- |
 | $f(x)$ | function | rule that maps input $x$ to output | $f(x) = x^2$ |
 | $\Delta x$ | delta x | a *finite* (non-zero) change in $x$ | from $x=2$ to $x=3$, $\Delta x = 1$ |
-| $dx$ | dee x | an *infinitesimally tiny* change in $x$ | the "limit" version of $\Delta x$ |
 | $\lim_{h \to 0}$ | limit as h goes to 0 | what the expression approaches as $h$ gets closer to 0 | $\lim_{h \to 0} (x + h) = x$ |
 | $f'(x)$ | f prime | first derivative of $f$ at $x$ (slope) | if $f(x)=x^2$, $f'(x)=2x$ |
-| $f''(x)$ | f double-prime | second derivative (curvature) | if $f(x)=x^2$, $f''(x)=2$ |
 | $\frac{dy}{dx}$ | derivative | same as $f'(x)$, Leibniz notation | $\frac{d}{dx}x^2 = 2x$ |
-| $\frac{\partial f}{\partial x}$ | partial derivative | derivative w.r.t. $x$ only, others frozen | $\frac{\partial}{\partial x}(3x^2y) = 6xy$ |
-| $\nabla f$ | nabla f / gradient | vector of all partial derivatives | $\nabla f = \begin{bmatrix} \frac{\partial f}{\partial x} \\ \frac{\partial f}{\partial y} \end{bmatrix}$ |
-| $\alpha$ | alpha / learning rate | step size in gradient descent | $\alpha = 0.1$ |
-| $\mathbf{w}$ | bold w | weight vector (the model's dials) | $\mathbf{w} = [0.5, -1.2]$ |
-| $L(\mathbf{w})$ | loss | total error of the model | $L = 3.7$ |
-| $\int_a^b f(x)\,dx$ | integral from a to b | total area under $f$ between $a$ and $b$ | $\int_0^2 x^2\,dx = \frac{8}{3}$ |
-| $E[X]$ | expected value | average outcome | $E[\text{die}] = 3.5$ |
-| $\sigma$ | sigma | standard deviation | $\sigma = 0.8$ |
+
+**Reference later (come back when you see these in Modules 2–5):**
+
+| Symbol | Name | Meaning | First appears |
+| :--- | :--- | :--- | :--- |
+| $dx$ | dee x | an *infinitesimally tiny* change in $x$ | Module 1.2 |
+| $f''(x)$ | f double-prime | second derivative (curvature) | Module 3.1 |
+| $\frac{\partial f}{\partial x}$ | partial derivative | derivative w.r.t. $x$ only, others frozen | Module 2.2 |
+| $\nabla f$ | nabla f / gradient | vector of all partial derivatives | Module 2.3 |
+| $\alpha$ | alpha / learning rate | step size in gradient descent | Module 4.3 |
+| $\mathbf{w}$ | bold w | weight vector (the model's dials) | Module 4.3 |
+| $L(\mathbf{w})$ | loss | total error of the model | Module 4.3 |
+| $\int_a^b f(x)\,dx$ | integral from a to b | total area under $f$ between $a$ and $b$ | Module 5.1 |
+| $E[X]$ | expected value | average outcome | Module 5.2 |
+| $\sigma$ | sigma | standard deviation | Module 5.2 |
 
 **How to read $\frac{dy}{dx}$ (so you never panic):** it is *not* a fraction you can cancel; it is a *symbol* that means *"the derivative of y with respect to x"* = *"how fast y changes when x changes a tiny bit."* When you see $\frac{d}{dx}(x^2)$, read it as *"take the derivative of $x^2$ with respect to $x$."*
 
@@ -212,6 +219,8 @@ and read it as *"the limit of f of x, as x approaches a, equals L."* This means:
 
 **Crucial fact:** the limit cares about *nearby* values, **not** about the value *at* the point. The function may be undefined exactly at $x = a$, and the limit can still exist.
 
+> **TL;DR:** A limit is the value a function *approaches* as the input gets close to some point — even if the function isn't defined at that exact point. It's the "what happens next" prediction.
+
 ### Step-by-step example with real numbers
 
 Look at the function
@@ -237,6 +246,8 @@ Approaching from the right (values bigger than 1):
 **Pattern:** from both sides, the outputs get closer and closer to $2$. Even though $f(1)$ does not exist, the limit does:
 
 $$\lim_{x \to 1} \frac{x^2 - 1}{x - 1} = 2$$
+
+> **No-Algebra Path (just look at the tables):** the numbers on both sides march toward 2. That IS the limit. No factoring needed — the table *is* the proof.
 
 **Algebraic confirmation (why it really is 2):** factor the numerator. $x^2 - 1 = (x - 1)(x + 1)$ (difference of squares). So:
 
@@ -285,6 +296,8 @@ Read it in words, piece by piece:
 **Why the "limit" part is essential:** with any *finite* $h$, the fraction $\frac{f(x+h)-f(x)}{h}$ is the slope of a **secant line** (a line through two points on the curve). As $h \to 0$, the two points merge into one, and the secant becomes the **tangent line** (the line that just touches the curve at that one point, matching its steepness exactly).
 
 ![Secant lines approaching the tangent line](/maths-images/calc-secant-tangent.png)
+
+> **TL;DR:** The derivative is the exact slope of a curve at one point. It's the "rise over run" when the run is infinitely small — the tangent line's slope, not an average over an interval.
 
 ### Full numeric derivation: the derivative of $f(x) = x^2$ at $x = 3$
 
@@ -431,6 +444,16 @@ $$\frac{d}{dx}\left(f(g(x))\right) = f'(g(x)) \cdot g'(x)$$
 **Read it in words:** *"derivative of the outer function (evaluated at the inner function), times derivative of the inner function."* Or the mnemonic: **"derivative of the outside, times derivative of the inside."**
 
 **Why it matters more than every other rule combined:** a neural network is a *stack of functions inside functions*: output = layer$_3$(layer$_2$(layer$_1$(input))). The chain rule is the only rule that can differentiate a stack — and backpropagation *is* the chain rule applied to networks (Module 2).
+
+> **TL;DR:** The chain rule says: to differentiate a function inside another function, multiply the derivative of the outer (at the inner) by the derivative of the inner. Neural networks are nested functions — backprop IS the chain rule.
+
+**Visual: Nested Boxes (the chain as assembly line)**
+
+```
+x ──▶ [ INNER: g(x) = 3x² + 2 ] ──▶ [ OUTER: f(□) = □⁵ ] ──▶ output
+     "multiply by 6x"                  "multiply by 5(inner)⁴"
+     derivative of inner               derivative of outer at inner
+```
 
 **Worked example:** $h(x) = (3x^2 + 2)^5$.
 
@@ -583,6 +606,8 @@ The curly $\partial$ (read "del" or "partial") replaces the straight $d$ to sign
 2. Treat **every other variable as if it were a number** (a constant).
 3. Differentiate with the ordinary rules from Module 1.
 
+> **TL;DR:** A partial derivative is just an ordinary derivative where you pretend all other inputs are fixed numbers. One variable moves, the rest stay frozen.
+
 ### Worked example — every arithmetic step shown
 
 $$f(x, y) = 3x^2 + 2y^3$$
@@ -635,6 +660,8 @@ $$\nabla f = \begin{bmatrix} \frac{\partial f}{\partial x_1} \\ \frac{\partial f
 
 The symbol $\nabla$ is called **nabla**. Read $\nabla f$ as *"the gradient of f."* It is simply a list: *"all n slopes, one per input, in one package."*
 
+> **TL;DR:** The gradient is a vector of ALL partial derivatives at once. It points in the direction of steepest UPHILL — so $-\nabla f$ (negative gradient) points DOWNHILL, the direction to reduce loss.
+
 ### Worked example (every number shown)
 
 $f(x, y) = x^2 + y^2$ (a bowl-shaped surface).
@@ -677,6 +704,8 @@ $$\frac{\partial z}{\partial x} = \frac{\partial z}{\partial g_1}\frac{\partial 
 
 **Plain words:** *"to find how $x$ affects $z$, multiply along every path from $x$ to $z$ and add the results."* Multiply along a path, add across paths.
 
+> **TL;DR:** The multivariable chain rule = for each path from input to output, multiply the derivatives along that path; then add up all paths. Backpropagation IS this rule applied layer by layer.
+
 ### Why neural networks are chains (the big picture)
 
 A tiny 2-layer network computes, for input $x$:
@@ -717,12 +746,20 @@ $$\frac{\partial L}{\partial w_1} = 46 \times 1 \times 5 \times 3 = 690$$
 
 ```
  x = 3 ──▶ z₁ = w₁·x = 6 ──▶ z₂ = w₂·z₁ = 30 ──▶ ŷ = 30 ──▶ L = (ŷ−7)² = 529
-          ↑                                          ↑
-      ∂z₁/∂w₁ = 3                          ∂L/∂ŷ = 46
-          │                                          │
-          └─────────── 46 × 1 × 5 × 3 = 690 ─────────┘
-                     (multiply along the path backward)
+           ↑                                          ↑
+       ∂z₁/∂w₁ = 3                          ∂L/∂ŷ = 46
+           │                                          │
+           └─────────── 46 × 1 × 5 × 3 = 690 ─────────┘
+                      (multiply along the path backward)
 ```
+
+> **COPY-PASTE TEMPLATE: The 4-Step Backprop Chain Rule**
+> For any chain: loss → output → layer N → ... → layer 1 → weight:
+> 1. $\frac{\partial L}{\partial \text{output}}$ = loss derivative (e.g., $2(\hat{y} - y)$ for MSE)
+> 2. $\frac{\partial \text{output}}{\partial \text{layer N}}$ = activation derivative (e.g., $\sigma'(z)$ for sigmoid)
+> 3. $\frac{\partial \text{layer }i}{\partial \text{layer }i-1}$ = weight matrix (or scalar for single neuron)
+> 4. $\frac{\partial \text{layer 1}}{\partial w}$ = input value (or 1 for bias)
+> **Multiply them all together.** That's your gradient for that weight.
 
 ### How the multivariable chain rule differs from the single-variable one
 
@@ -804,6 +841,8 @@ $$J = \begin{bmatrix} \frac{\partial f_1}{\partial x_1} & \frac{\partial f_1}{\p
 - If the function outputs 1 number → the Jacobian is just the gradient (a vector).
 - If it outputs $m$ numbers from $n$ inputs → the Jacobian is an $m \times n$ matrix.
 
+> **TL;DR:** The Jacobian is a **sensitivity spreadsheet**. Row = which output, Column = which input. Entry = "if I wiggle input j, how much does output i move?" It's the local linear approximation of a vector function.
+
 ### Worked example — every derivative computed
 
 $$\mathbf{f}(x_1, x_2) = \begin{bmatrix} f_1 \\ f_2 \end{bmatrix} = \begin{bmatrix} x_1^2 + 3x_2 \\ x_1 \cdot x_2 \end{bmatrix}$$
@@ -854,6 +893,8 @@ $$H = \begin{bmatrix} \frac{\partial^2 f}{\partial x_1^2} & \frac{\partial^2 f}{
 - Off-diagonal entries $\frac{\partial^2 f}{\partial x_i \partial x_j}$: **mixed partials** — how the slope in the $x_i$ direction changes as $x_j$ moves (interaction curvature).
 
 **Important property:** for "nice" functions the mixed partials are equal: $\frac{\partial^2 f}{\partial x_i \partial x_j} = \frac{\partial^2 f}{\partial x_j \partial x_i}$, so the Hessian is **symmetric**.
+
+> **TL;DR:** The Hessian is the **curvature spreadsheet** (second derivatives). Diagonal = "how fast does the slope change in this direction?" Off-diagonal = "how does moving in direction j affect the slope in direction i?" Gradient = slope table; Hessian = curvature table.
 
 ### Worked example — every derivative computed
 
@@ -1103,6 +1144,17 @@ $$\mathbf{v} \leftarrow \beta \mathbf{v} + \nabla L, \qquad \mathbf{w} \leftarro
 | SGD + Momentum | one global $\alpha$ | none | smooths zigzag, crosses saddles |
 | Adam | per-parameter | yes | fast, stable, robust; the default choice |
 
+> **OPTIMIZER DECISION FLOWCHART (pick your starting point):**
+> ```
+> Is your problem convex (linear/logistic regression)?
+>   YES → Plain GD with line search (guaranteed convergence)
+>   NO (deep nets, non-convex) → Is your loss noisy / data huge?
+>     YES → Adam (default, handles noise + per-parameter scale)
+>     NO → Is landscape full of long valleys (RNNs, CNNs)?
+>       YES → SGD + Momentum (0.9) — glides through ravines
+>       NO → Adam (safe default for everything)
+> ```
+
 ### Where, why, how in ML
 
 - **Where:** transformers and LLMs are trained with Adam/AdamW; CNNs often use SGD+momentum; the choice is part of "training recipe."
@@ -1129,6 +1181,8 @@ Two flavors:
 | **Definite integral** | "what is the total area under $f$ between $a$ and $b$?" | $\int_a^b f(x)\,dx = F(b) - F(a)$ |
 
 The constant $C$ appears because many functions share a derivative (derivative of $x^2$, $x^2 + 1$, $x^2 - 7$ is all $2x$) — the indefinite integral lists the whole family.
+
+> **TL;DR:** Integration is the opposite of differentiation. Derivative = rate/slope (local); Integral = accumulation/area (global). They undo each other (Fundamental Theorem).
 
 ### The Riemann sum — how area is actually computed (and why it's a limit)
 
@@ -1204,6 +1258,8 @@ A **probability density function (PDF)** $f(x)$ describes where a continuous ran
 1. The total area under the PDF is exactly 1 (probability must sum to 100%): $\int_{-\infty}^{\infty} f(x)\,dx = 1$.
 2. The probability of landing in an interval is the *area* over that interval:
 
+> **TL;DR:** A PDF is a smooth curve where **area = probability**. Height is *density* (probability per unit), not probability. $P(X = \text{exact value}) = 0$ — only ranges have probability.
+
 $$P(a \le X \le b) = \int_a^b f(x)\,dx$$
 
 **Critical difference from discrete probabilities:** for a continuous variable, the probability of an *exact single point* is 0 (a point has zero width → zero area). Probabilities only make sense over *ranges*. The PDF's height is *density* (probability per unit of $x$), not probability.
@@ -1221,6 +1277,8 @@ $$E[X] = \int_{-\infty}^{\infty} x \cdot f(x)\,dx$$
 $$E[X] = \int_0^4 x \cdot \frac{1}{4}\,dx = \frac{1}{4} \cdot \frac{x^2}{2}\Big|_0^4 = \frac{1}{4}\left(\frac{16}{2} - 0\right) = \frac{1}{4} \cdot 8 = 2$$
 
 The average of numbers uniformly drawn from 0 to 4 is indeed 2 (the midpoint). ✓
+
+> **Constants don't matter for optimization:** when maximizing likelihood (Statistics doc, MLE), the log-likelihood often has terms like $-\frac{1}{2}\log(2\pi\sigma^2) - \frac{(y-f)^2}{2\sigma^2}$. The first term is constant w.r.t. the model parameters — **constants don't affect the argmax**. This is why MSE (minimizing $(y-f)^2$) is equivalent to maximizing Gaussian likelihood.
 
 ### How PDFs differ from PMFs (the most common confusion in ML)
 
