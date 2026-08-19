@@ -1,6 +1,6 @@
 ---
 title: Example 4 — Sentiment Analysis (RNN/LSTM, end-to-end)
-description: The full job pipeline on a real NLP task — classify review sentiment with an LSTM. Where the embedding matmul, LSTM gates, and the chain rule through time live. Plus the honest production lesson: on tiny data, simple models beat deep ones.
+description: "The full job pipeline on a real NLP task — classify review sentiment with an LSTM. Where the embedding matmul, LSTM gates, and the chain rule through time live. Plus the honest production lesson: on tiny data, simple models beat deep ones."
 tags: [math, ml, practical, nlp, rnn, lstm, pytorch, embedding]
 ---
 

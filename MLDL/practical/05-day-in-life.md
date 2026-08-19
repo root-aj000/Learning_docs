@@ -1,6 +1,6 @@
 ---
 title: Day in the Life — What Math a Junior ML Engineer Actually Touches
-description: The brutally honest split — the math you use daily at work vs the math you only recognize when reading papers. Plus the daily rituals where the math shows up: loss curves, baselines, scaling, debugging.
+description: "The brutally honest split — the math you use daily at work vs the math you only recognize when reading papers. Plus the daily rituals where the math shows up: loss curves, baselines, scaling, debugging."
 tags: [math, ml, practical, career, fundamentals]
 ---
 
