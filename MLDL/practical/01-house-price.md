@@ -212,3 +212,54 @@ G. new listing prediction: $416,669 (true formula gives $418,000)
 | Why C failed | feature scale → gradient scale mismatch | `StandardScaler` = z-scores |
 
 **You now know where and why every piece of this model's math lives.** Next: `02-spam.md` — the same loop, but with softmax, cross-entropy, and TF-IDF (where the log enters real code).
+
+---
+
+## DEEP — WHY THE NUMBERS BEHAVED THE WAY THEY DID
+
+### DEEP-1: the MSE gradient formula, derived and verified
+
+The loss is `MSE(w) = (1/n) Σ (xᵢ·w − yᵢ)²`. Its gradient — what `loss.backward()` computes — has a closed form:
+
+```
+dMSE/dw = (2/n) Xᵀ (Xw − y)     <- one matmul (Xᵀ), one residual vector, that's it
+```
+
+**Verified on this doc's actual data** (w = [1, −0.5, 2], comparing the formula against numeric finite differences `(f(w+ε) − f(w−ε))/2ε`):
+
+```
+grad[0]: formula +27650758.333333  finite-diff +27650758.333504  diff 1.7e-04
+grad[1]: formula +26463.083333     finite-diff +26463.083923     diff 5.9e-04
+grad[2]: formula +18504.500000     finite-diff +18504.500389     diff 3.9e-04
+```
+
+The formula is exact (the tiny diffs are float precision). Note the sizes: `∂MSE/∂w_sqft ≈ 27,650,758` — the huge gradient on the raw scale, measured precisely. This is *why* the raw-scale learning rate had to be 1e-8: the gradient itself was millions of times larger than the weights.
+
+### DEEP-2: the actual condition number of this doc's data — and the exact slow mode
+
+The `2/λmax` law from `00-mental-model.md` applied to the *real* data here (normalized `XᵀX`):
+
+```
+eigenvalues of XᵀX (normalized): [0.018, 0.049, 2.932]   condition number = 158.79
+max safe lr = 2/λmax = 0.682
+```
+
+**Every number in this doc's experiments is explained by these three eigenvalues:**
+
+- **Why `lr=0.05` worked but `lr=1` would not:** 0.05 < 0.682 < 1. A learning rate above the bound *guarantees* divergence — the steepest direction (λ = 2.932) overshoots.
+- **Why GD crawled (E needed 10,000 epochs):** the slowest direction has λ = 0.018, so its per-step shrink is `1 − lr·λmin = 1 − 0.05·0.018 = 0.9991`. Shrinking that direction by 1000× takes `ln(1000)/0.0009 ≈ 7,700 steps` — while the fast direction (λ = 2.932) shrinks 1000× in ~44 steps. The measured training curve proves it:
+
+```
+step     2: MSE 20784.86     <- the fast directions (λ=2.932) are already crushed
+step    50: MSE 138.08
+step   200: MSE 97.68         <- now only the slow direction remains, creeping
+step  2000: MSE 54.21         <- closed form (A) got 54.3 in ONE step
+```
+
+The first ~50 steps do nearly all the visible work (the fast eigen-direction); the remaining 1,950 steps are the slow mode grinding down. **This is why closed forms exist** — when `XᵀX` is invertible and small (n > d), one `np.linalg.lstsq` call solves exactly what GD takes thousands of steps to approach. When the closed form dies (huge d, or `XᵀX` singular because features are collinear), GD is the only option — but now you know *why* it's slow and what normalization is doing to fix it.
+
+### DEEP-3: why the condition number is the whole story (the 1,091,073 case)
+
+In `00-mental-model.md` DEEP-2 the extreme case was measured: one feature scaled ×1000 gives eigenvalues `[0.95, 1.03, 1,048,222]` and a condition number of 1,091,073 — a loss surface shaped like a canyon: nearly flat along two directions, a cliff along the third. Max safe lr: `1.9e-06`. With `lr=1e-8` (C's failure), training *works* — but every step moves 1,000× too little along the flat directions, hence w₂ stuck at 2.2 after 20,000 epochs. The z-score transform (subtract mean, divide by std) maps the canyon onto a bowl (all λ ≈ 1) — verified: eigenvalues `[0.91, 0.98, 1.11]`, safe lr 1.80.
+
+**The one-paragraph summary:** every learning-rate problem you will ever debug is the condition number in disguise. Normalize → λ ≈ 1 → one lr fits all directions. That's the statistics math (z-scores) saving the calculus math (gradient descent) from the linear algebra (eigenvalues) — all four docs meeting in one bug fix.

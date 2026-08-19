@@ -212,3 +212,57 @@ E. L2 penalty of current MLP weights: 1369.9
 **The progression to remember: 93.1% → 96.0% → 98.0%.** One hidden layer bought 2.9 points; convolutions bought another 2. In a real job, you'd keep going: more data, more layers, data augmentation (rotating images = **linear algebra transformations**!) — but the loop and the math never change.
 
 **Next:** `04-sentiment-rnn.md` — the same loop on text, where the matmul learns to *remember* (LSTM gates = sigmoid + element-wise multiply).
+
+---
+
+## DEEP — WHY SOFTMAX+CE, WHY CONV, WHY DEPTH IS HARD
+
+### DEEP-1: the most beautiful gradient in machine learning — `∂CE/∂z = p − y`
+
+For the softmax layer with cross-entropy loss (10 classes, one-hot target), the gradient w.r.t. each logit is one subtraction:
+
+```
+dL/dz = p − y        (predicted probability minus the one-hot truth)
+```
+
+**Verified** (logits [2.0, 1.0, 0.1], truth = class 0):
+
+```
+softmax probs:  [0.659, 0.242, 0.099]
+autograd dL/dz: [-0.341,  0.242,  0.099]
+p − y (theory): [-0.341,  0.242,  0.099]     <- match, exactly
+```
+
+Every neuron gets blame *proportional to how much it overshot the truth* — no sigmoid factor, no vanishing at saturation. This single formula is why softmax+CE is the default classifier head: its gradient is *simple, never saturates, and has a probability interpretation* (`p − y` is literally "surprise times evidence"). Compare with DEEP-1 of `02-spam.md`: for 2 classes this reduces to `p − y` on one logit — the same gradient, one formula.
+
+### DEEP-2: convolution IS a matmul — the Toeplitz proof
+
+A conv "slides a filter" — but it's secretly one matmul with a *banded* matrix where the same filter weights are repeated, shifted one row at a time:
+
+```
+x = [1, 3, -2, 5, 0, 4, 2, -1, 3],   filter k = [0.5, -1, 0.5]
+
+       [0.5  -1   0.5   0    0    0    0    0    0 ]
+M x =  [ 0   0.5  -1   0.5   0    0    0    0    0 ]
+       [ 0    0   0.5  -1   0.5   0    0    0    0 ]   (same row, shifted = "sliding")
+       [ ... ]
+```
+
+**Verified:** `conv1d(x, k) = M @ x = [-3.5, 6, -6, 4.5, -3, -0.5, 3.5]` — identical, both ways. A CNN is therefore just a structured matmul with **shared weights** (the same numbers reused at every position). That sharing is the entire reason CNNs need so few parameters: the filter is one small set of weights applied everywhere, instead of a full matrix. Everything you know about matmuls still applies — a conv layer is a `nn.Linear` whose weight matrix happens to be banded and shared.
+
+### DEEP-3: why deep networks need init, ReLU, and shortcuts — vanishing gradients, measured
+
+The chain rule multiplies one derivative per layer. With 20 hidden layers, the gradient at layer 1 vs layer 20 (loss = `|out|.mean()`) — measured:
+
+```
+Tanh: layer-1 grad 1.088e-06   layer-20 grad 6.249e-02   -> first layer's update is 57,445x weaker
+ReLU: layer-1 grad 7.044e-10   layer-20 grad 6.250e-02   -> 88,726,180x weaker (dying ReLUs)
+```
+
+After 20 multiplications of small derivatives, the first layer's update is *zero for all practical purposes* — the network only learns in its last few layers. This measured fact is why deep learning needs the tricks you'll see in every real codebase:
+
+1. **Careful init.** A random `W` with scale 1.0 sends activation std to **110,770 after just 5 layers** (measured). The Kaiming/He init `scale = 1/√fan_in` exists so that activation std stays ~1 (measured: 0.151 after 5 layers with `1/√256 = 0.0625`) — keeping the derivative chain from exploding *or* vanishing from the start.
+2. **ReLU over tanh.** Tanh saturates and *always* squeezes gradients; ReLU's derivative is exactly 1 (or 0) — no squeeze. But ReLU's 0 kills neurons: with lr=0.3 on a small net, **66% of ReLU units were dead after 100 epochs (measured)** — a unit whose input is always negative never learns again. That's the "dead ReLU" you'll hear about.
+3. **Skip connections** (ResNet) and **normalization** (BatchNorm) — both just give the gradient a path that doesn't multiply through every layer. The LSTM's memory cell in `04-sentiment-rnn.md` is the same trick in disguise: an additive path the gradient can ride.
+
+These aren't folklore — every number above is the chain rule, measured. The vanishing gradient is not a bug in specific networks; it's the unavoidable consequence of multiplying 20 factors.

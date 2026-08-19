@@ -173,3 +173,65 @@ for test in ["i loved this movie", "this was terrible", "an absolute masterpiece
 **New mental furniture:** "embeddings are learned matmuls", "LSTM memory = 4 gates of sigmoid/tanh matmuls + element-wise updates", and the career-saver: **always run a simple baseline before a deep model** — on small data, simple wins; the deep model earns its complexity only with data.
 
 **Next:** `05-day-in-life.md` — the day-in-the-life view: which math you actually touch daily as a junior ML engineer, and which you only recognize when reading papers.
+
+---
+
+## DEEP — WHY THE LSTM REMEMBERS, AND WHY THE MODEL OVERFIT (measured)
+
+### DEEP-1: vanishing gradients through time — the RNN's disease and the LSTM's cure
+
+A plain RNN's hidden state recurses as `h_t = tanh(W h_{t-1} + ...)`. The chain rule through time multiplies the derivative `dh_t/dh_{t-1} = Wᵀ·diag(1−tanh²)` for every step. That factor is a **fixed property of the random weight matrix** — the model cannot learn it away. With an orthogonal `W` whose spectral norm is exactly 0.5 (verified measurement):
+
+```
+RNN, W spectral norm 0.5:  dL/dh at t=29 = 0.2500   at t=0 = 5.81e-16
+                            theory: 0.5^29 = 1.86e-09  (measured: GONE, float zero)
+RNN, W spectral norm 1.2:  dL/dh at t=29 = 0.2500   at t=0 = 1.78e-06
+                            (growth capped by tanh saturation -- real RNNs explode
+                             too, which is why gradient clipping exists)
+```
+
+After 30 steps the first word's gradient is **zero to machine precision**. A 30-word review already can't learn from its own beginning. That's why plain RNNs are rare in production.
+
+The LSTM fixes this with one structural change: the memory cell updates **additively** — `c_t = f⊙c_{t-1} + i⊙g` — so `dc_t/dc_{t-1} = f`, the forget gate, a *single learnable number in [0,1]*. Measured on the same architecture:
+
+```
+LSTM: dL/dc at t=29 = 0.2016   at t=0 = 1.27e-04
+      per-step factor = 0.680  -- exactly the mean forget-gate value f
+```
+
+And the factor is under the optimizer's control, not the random init's. The forget bias — one scalar — sets the memory horizon:
+
+```
+forget bias = 0:  f(0) = 0.500   30-step factor = 9.31e-10   (forgets everything)
+forget bias = 1:  f(0) = 0.731   30-step factor = 8.29e-05   (standard init)
+forget bias = 3:  f(0) = 0.953   30-step factor = 2.33e-01   (remembers long)
+forget bias = 5:  f(0) = 0.993   30-step factor = 8.18e-01   (near-perfect memory)
+```
+
+That table is the *entire* secret of "long-term memory" in deep learning: not magic, just an additive path whose decay rate is a trainable parameter. Same trick as ResNet's skip connections (`03-mnist-cnn.md` DEEP-3) — give the gradient a corridor that doesn't multiply through every step.
+
+### DEEP-2: the bias-variance decomposition — the exact identity behind the overfitting
+
+The doc's real result was: LSTM test 0.5, BOW 0.75 — the complex model lost *because* it was complex. Here's the exact theorem underneath, verified numerically. For any model: `E[(ŷ − y)²] = bias² + variance + noise²`. Measured by training 200 copies of two models on n=20 noisy samples each (true function f = 3x):
+
+```
+linear (simple):      bias² =    0.000   variance =      0.110   sum =      0.110
+                      measured (vs true f) = 0.110   <- the identity, EXACT
+poly9 (complex):      bias² =  302.490   variance =  72254.392   sum =  72556.882
+                      measured (vs true f) = 72556.882   <- exact to the decimal
+fresh noisy targets:  linear ≈ 1.16, poly9 ≈ 72555   (adds the noise² = 1.0 term)
+```
+
+**Read the numbers.** The simple model: zero bias (its shape matches the truth) and tiny variance (stable fits) — total error 0.11, dominated by irreducible noise. The complex model: smaller bias in principle, but its variance — how much the fit *wiggles* from dataset to dataset — explodes to 72,254. This is the sentiment result in math: the LSTM is the poly9 (big variance, small data), the BOW+logistic is the linear model (low variance, appropriate shape). **Overfitting isn't a mystery; it's variance measured.** That's why the fix is always the same: more data (variance shrinks as 1/n), simpler models, or regularization — never "train longer."
+
+### DEEP-3: embedding geometry — similarity is a dot product
+
+The doc claimed embeddings learn that similar words get similar vectors. Measured directly on the trained embedding table:
+
+```
+learned cosine similarity:  amazing vs wonderful = 0.870   (both positive words)
+                            terrible  vs awful   = 0.865   (both negative words)
+                            amazing   vs terrible = -0.753 (opposite meanings)
+```
+
+No one told the model that "amazing" and "wonderful" are related — it *observed* that they co-occur with the same label, and gradient descent arranged their vectors accordingly. The dot product from your linear algebra docs is the meaning-similarity metric. (At GPT scale this same mechanism produces the famous `king − man + woman ≈ queen` arithmetic.)

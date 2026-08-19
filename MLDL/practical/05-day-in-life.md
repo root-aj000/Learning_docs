@@ -92,3 +92,43 @@ tags: [math, ml, practical, career, fundamentals]
 - [ ] Recognize — not compute — every Tier-3 item on this page
 
 **The final truth:** the four example docs (`01`–`04`) contain every skill above. They're not math lessons — they're the job, with the math pointed out. If you've read them and run the code, you've crossed the gap you described. The rest is repetition at a real job.
+
+---
+
+## DEEP — THE RECOGNITION HANDBOOK (Tier-3 math, made recognizable)
+
+You said "I want everything". Here is the Tier-3 list from earlier — every item defined precisely enough that you can *recognize it in any paper* and know what it's doing, without ever computing it. Each entry: what it is, where it appears, what to say when someone mentions it.
+
+### Jacobian — "the matrix of all partial derivatives"
+**What it is:** for a function with many outputs, the derivative is a matrix — each row holds the partials of one output w.r.t. every input. A scalar loss's gradient (a vector) is the last row of a Jacobian. **Where:** normalizing flows (the change-of-variables formula multiplies Jacobian determinants), multi-output models, some optimizers. **What to say:** "the Jacobian is how the chain rule generalizes to vector functions — `loss.backward()` computes it implicitly."
+
+### Hessian — "the curvature of the loss"
+**What it is:** the matrix of second derivatives — how the *slope itself* changes. The `2/λmax` law from `00-mental-model.md` DEEP-2 *is* a Hessian statement: for MSE, the Hessian is `XᵀX`, and its eigenvalues decide the max learning rate. **Where:** every paper on optimization, second-order methods, "sharp vs flat minima" debates, some learning-rate schedulers. **What to say:** "the Hessian is too expensive to compute for big models (d² entries), so everyone approximates it or ignores it — but the conditioning idea lives on in normalization, Adam, and BatchNorm."
+
+### Eigenvalues / eigenvectors — "the directions where a matrix acts like pure scaling"
+**What it is:** for a symmetric matrix, special directions `v` with `A·v = λ·v` — the matrix *only stretches* along them. **Where:** PCA (your implementations doc matched sklearn to 3.8e-14 — PCA *is* the eigenvectors of `XᵀX`), spectral analysis of neural nets, LoRA analyses, convergence proofs. **What to say:** "eigenvalues are the stretch factors; the biggest one sets the max learning rate, the ratio of biggest/smallest (the condition number) sets how hard the optimization is."
+
+### SVD — "turn, stretch, turn back"
+**What it is:** every matrix `M = U·Σ·Vᵀ` — any transformation decomposes into rotation → axis-wise stretch (the singular values Σ) → rotation. The closest relative of eigenvalues that works for *non-square* matrices. **Where:** **LoRA** (the fine-tuning method — the learned update ΔW is stored as `B·A` with small rank, which *is* a truncated SVD in spirit), matrix compression, PCA again, recommendation systems. **What to say:** "SVD is the Swiss-army matrix decomposition; LoRA is literally using its low-rank form to shrink trainable parameters."
+
+### KL divergence — "how far apart two distributions are"
+**What it is:** `KL(P‖Q) = Σ P(x)·ln(P(x)/Q(x))` — the expected log-ratio. It's asymmetric (order matters), always ≥ 0, and zero iff P = Q. **Where:** model **distillation** (training a small model against a big one's probabilities — the loss *is* a KL), variational inference (the ELBO), VAEs, "why LLM outputs look so flat" discussions. **What to say:** "KL measures the information lost using Q to approximate P — the cross-entropy loss of the spam doc is `H(P) + KL(P‖Q)`, and since H(P) is constant during training, minimizing cross-entropy *is* minimizing KL."
+
+### Entropy — "the surprise meter"
+**What it is:** `H(P) = −Σ P(x)·ln P(x)` — the expected surprise, maximal for the uniform distribution, zero for a certain outcome. **Where:** every generative model paper ("maximize entropy"), the `ln(10) = 2.303` "knows nothing" signature from `03-mnist-cnn.md` *is* the entropy of a uniform 10-class distribution, tokenizers, "perplexity = e^entropy" metrics for LLMs. **What to say:** "entropy counts surprises; a model's loss is literally its per-token surprise."
+
+### Monte Carlo — "guess many times, average"
+**What it is:** estimating expectations by sampling instead of integrating — the law of large numbers in action (the bootstrap CI from your statistics doc *is* a Monte Carlo method). **Where:** Bayesian inference, reinforcement learning (policy gradients are MC estimates), diffusion sampling, uncertainty quantification. **What to say:** "Monte Carlo replaces integrals with averages over samples; the error shrinks as 1/√n — the same σ/√n law from the CLT."
+
+### Markov chains — "the next step depends only on now"
+**What it is:** a sequence where `P(state_{t+1} | everything) = P(state_{t+1} | state_t)` — no memory beyond the present. **Where:** LLM **sampling** (each token depends only on the current context window), MCMC methods, PageRank, some RL environments. **What to say:** "a Markov chain is the stateless assumption — which is exactly why transformers need a window: they're Markov chains over that window."
+
+### The bonus connection — every Tier-3 item is a Tier-1 item in disguise
+- Jacobian = the *shape* of the gradients you already use daily.
+- Hessian eigenvalues = the `2/λmax` law you verified in `00` and `01`.
+- KL = cross-entropy (spam's loss) minus a constant.
+- Entropy = the `2.303` from MNIST's training log.
+- Monte Carlo = the bootstrap from your statistics doc.
+- SVD = the matrix version of the eigen-stuff behind PCA and LoRA.
+
+Nothing on this page is disconnected from the six daily items. Papers sound alien because they use *names*; now you know what each name does, and that's all "recognition" ever requires.
